@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>逐帧动画</title>
+    <style>
+        .box {
+            width: 140px;
+            height: 140px;
+            background: url("images/bg.png") 0 0 no-repeat;
+            animation: aaa 1s steps(12) infinite , run 4s linear infinite;
+            /*animation: aaa 1s steps(12) infinite ;*/
+        }
+
+        @keyframes aaa {
+            50% {
+                background: url("images/bg.png") -1680px 0 no-repeat;
+            }
+            /*100%{*/
+            /*    background: url("images/bg.png") -1680px 0 no-repeat;*/
+            /*}*/
+        }
+
+        @keyframes run {
+            50% {
+                transform: translateX(600px);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css简易轮播</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            margin: 200px auto;
+            width: 960px;
+            height: 145px;
+            border: 2px solid #000;
+            overflow: hidden;
+        }
+
+        ul {
+            width: calc(240px * 11);
+            animation: aaa linear 4s infinite;
+        }
+
+        li {
+            list-style: none;
+            float: left;
+            width: 240px;
+            height: 145px;
+        }
+
+        li a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        @keyframes aaa {
+            100% {
+                transform: translateX(calc(-240px * 7));
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li><a href="#"><img src="images/1.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/2.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/3.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/4.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/5.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/6.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/7.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/1.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/2.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/3.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/4.jpg" alt=""></a></li>
+    </ul>
+</div>
+</body>
+</html>

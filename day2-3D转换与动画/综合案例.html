@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>综合案例</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            background: url("images/f1_1.jpg") center/cover no-repeat;
+        }
+
+        .cloud img {
+            position: absolute;
+            left: 50%;
+        }
+
+        .yun1 {
+            margin: 30px 0 0 -200px;
+            animation: yun 2.5s linear infinite;
+        }
+
+        .yun2 {
+            margin: 100px 0 0 300px;
+            animation: yun 3s linear infinite;
+        }
+
+        .yun3 {
+            margin: 150px 0 0 -400px;
+            animation: yun 3.5s linear infinite;
+        }
+
+        .qiqiu img {
+            position: absolute;
+            width: 80px;
+            left: 50%;
+            margin: 270px 0 0 -300px;
+            animation: aaa 2s linear infinite;
+        }
+
+        .zuobiao img {
+            position: absolute;
+            width: 80px;
+            top: 75%;
+            left: 50%;
+            animation: aaa 1.4s linear infinite;
+        }
+
+        .zuobiao .zuo1 {
+            margin-left: -26.3%;
+            animation-delay: -1s;
+
+        }
+
+        .zuo2 {
+            margin-left: -11%;
+        }
+
+        .zuobiao .zuo3 {
+            margin-left: 4.7%;
+            animation-delay: -1s;
+        }
+
+        .zuo4 {
+            margin-left: 20.2%;
+        }
+
+        .zi img {
+            position: absolute;
+            margin-left: -150px;
+            top: 50%;
+            left: 50%;
+            animation: bbb 1.5s infinite ;
+            width: 300px;
+        }
+
+        @keyframes yun {
+            50% {
+                transform: translateX(50px)
+            }
+        }
+
+        @keyframes aaa {
+            50% {
+                transform: translateY(30px)
+            }
+        }
+        @keyframes bbb {
+            50%{
+                transform:scale(1.1);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="cloud">
+    <img class="yun1" src="images/yun1.png" alt="">
+    <img class="yun2" src="images/yun2.png" alt="">
+    <img class="yun3" src="images/yun3.png" alt="">
+</div>
+<div class="zi">
+    <img src="images/font1.png" alt="">
+</div>
+<div class="qiqiu">
+    <img src="images/san.png" alt="">
+</div>
+<div class="zuobiao">
+    <img class="zuo1" src="images/1.png" alt="">
+    <img class="zuo2" src="images/2.png" alt="">
+    <img class="zuo3" src="images/3.png" alt="">
+    <img class="zuo4" src="images/4.png" alt="">
+</div>
+</body>
+</html>
