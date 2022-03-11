@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .all {
+            margin: 200px auto;
+            /*perspective: 2000px;*/
+            width: 200px;
+            height: 200px;
+            transform-origin: -50% 100px;
+        }
+
+        .box {
+            margin: auto;
+            position: relative;
+            transform-style: preserve-3d;
+            width: 200px;
+            height: 200px;
+            animation: aaa 12s infinite;
+            transform: rotateX(20deg) rotateY(20deg) rotateZ(20deg);
+            /*transition: all .5s;*/
+        }
+
+        /*.box:hover {*/
+        /*    transform: rotateY(90deg);*/
+        /*}*/
+
+        .box div {
+            position: absolute;
+            text-align: center;
+            line-height: 200px;
+            width: 200px;
+            height: 200px;
+        }
+
+        .box1 {
+            background: rgba(129, 120, 213, .6);
+            transform: translateZ(100px);
+        }
+
+        .box2 {
+            background: rgba(120, 210, 213, 0.6);
+            transform: translateZ(-100px);
+        }
+
+        .box3 {
+            background: rgba(56, 245, 180, 0.6);
+            transform: translateY(-100px) rotateX(90deg);
+        }
+
+        .box4 {
+            background: rgba(255, 245, 60, 0.6);
+            transform: translateY(100px) rotateX(90deg);
+        }
+
+        .box5 {
+            background: rgba(255, 100, 60, 0.6);
+            transform: translateX(100px) rotateY(90deg);
+        }
+
+        .box6 {
+            background: rgba(255, 100, 60, 0.6);
+            transform: translateX(-100px) rotateY(90deg);
+        }
+
+        @keyframes aaa {
+            6% {
+                transform: rotateY(45deg) rotateZ(45deg);
+            }
+            18% {
+                transform: rotateX(45deg) rotateZ(45deg);
+            }
+            31% {
+                transform: rotateY(135deg) rotateZ(135deg);
+            }
+            43% {
+                transform: rotateX(135deg) rotateZ(135deg);
+            }
+            56% {
+                transform: rotateY(225deg) rotateZ(225deg);
+            }
+            68% {
+                transform: rotateX(225deg) rotateZ(225deg);
+            }
+            81% {
+                transform: rotateY(315deg) rotateZ(315deg);
+            }
+            94% {
+                transform: rotateX(315deg) rotateZ(315deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="all">
+    <div class="box">
+        <div class="box1">1</div>
+        <div class="box2">2</div>
+        <div class="box3">3</div>
+        <div class="box4">4</div>
+        <div class="box5">5</div>
+        <div class="box6">6</div>
+    </div>
+</div>
+</body>
+</html>

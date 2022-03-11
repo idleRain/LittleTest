@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            /*透视/视距，模拟与屏幕的距离*/
+            perspective: 1000px;
+        }
+        .box{
+            margin: 200px auto;
+            width: 200px;
+            height: 200px;
+            background: cyan;
+            transition: all .4s;
+            transform: translateZ(200px);
+        }
+        .box:hover{
+            transform: translateZ(400px);
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+</body>
+</html>

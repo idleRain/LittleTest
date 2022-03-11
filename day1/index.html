@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*也可以用定位完成*/
+        .box{
+            margin: 50px auto;
+            width: 1366px;
+            height: 600px;
+            overflow: hidden;
+            background: url("images/bg.jpg");
+        }
+        .left{
+            float: left;
+            height: 100%;
+            transition: all .5s;
+            width: 50%;
+            background: url("images/fm.jpg") 0 0 no-repeat;
+        }
+        .right{
+            float: right;
+            transition: all .5s;
+            height: 100%;
+            width: 50%;
+            background: url("images/fm.jpg") -683px 0 no-repeat;
+        }
+        .box:hover .left{
+            transform: translate(-100%,0);
+        }
+        .box:hover .right{
+            transform: translate(100%,0);
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="left"></div>
+    <div class="right"></div>
+</div>
+</body>
+</html>

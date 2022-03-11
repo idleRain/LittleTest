@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>旋转</title>
+    <style>
+        .an-box {
+            position: relative;
+            width: 299px;
+            height: 299px;
+            margin: 150px auto 45px;
+        }
+
+        .an-box:hover .inner-img0 {
+            transform: translate(-50%, -50%) rotate(36000deg);
+        }
+
+        .an-box:hover .inner-img1 {
+            transform: translate(-50%, -50%) rotate(-36000deg);
+        }
+
+        .an-box:hover .inner-img2 {
+            transform: translate(-50%, -50%) rotate(36000deg);
+        }
+
+        .an-box:hover .inner-img3 {
+            transform: translate(-50%, -50%) rotate(-36000deg);
+        }
+
+        .an-box .png {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all linear 30s;
+        }
+
+        .inner-img0 {
+            width: 100%;
+            height: 100%;
+            background: url(./images/page2_img4.png) no-repeat;
+        }
+
+        .inner-img1 {
+            width: 226px;
+            height: 226px;
+            background: url(./images/page2_img3.png) no-repeat;
+        }
+
+        .inner-img2 {
+            width: 185px;
+            height: 185px;
+            background: url(./images/page2_img2.png) no-repeat;
+        }
+
+        .inner-img3 {
+            width: 167px;
+            height: 167px;
+            background: url(./images/page2_img1.png) no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+<div class="an-box">
+    <div class="inner-img0 png"></div>
+    <div class="inner-img1 png"></div>
+    <div class="inner-img2 png"></div>
+    <div class="inner-img3 png"></div>
+</div>
+</body>
+
+</html>
