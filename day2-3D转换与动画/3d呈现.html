@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <title>动画3D</title>
     <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
         .all {
             margin: 200px auto;
-            /*perspective: 2000px;*/
+            perspective: 3000px;
             width: 200px;
             height: 200px;
             transform-origin: -50% 100px;
@@ -22,51 +28,77 @@
             transform: rotateX(20deg) rotateY(20deg) rotateZ(20deg);
             /*transition: all 2s;*/
         }
+
         /*鼠标选中暂停动画*/
-        .box:active{
+        .box:active {
             animation-play-state: paused;
         }
-            /*.box:hover {*/
-        /*    transform: rotateY(90deg);*/
-        /*}*/
+
+        li {
+            list-style: none;
+            float: left;
+            width: 66px;
+            height: 66px;
+            border: 2px solid #fff;
+            font-size: 18px;
+            color: #555;
+            line-height: 66px;
+            font-weight: 700;
+        }
 
         .box div {
             position: absolute;
             text-align: center;
-            line-height: 200px;
             width: 200px;
             height: 200px;
-            border: 1px solid transparent;
         }
 
         .box1 {
-            background: rgba(129, 120, 213, .6);
             transform: translateZ(100px);
         }
 
+        .box1 li {
+            background: rgba(129, 120, 213, .6);
+        }
+
         .box2 {
+            transform: translateZ(-100px) rotateX(180deg);
+        }
+
+        .box2 li {
             background: rgba(120, 210, 213, 0.6);
-            transform: translateZ(-100px);
         }
 
         .box3 {
+            transform: translateY(-100px) rotateX(270deg) rotateY(180deg);
+        }
+
+        .box3 li {
             background: rgba(56, 245, 180, 0.6);
-            transform: translateY(-100px) rotateX(90deg);
         }
 
         .box4 {
+            transform: translateY(100px) rotateX(270deg);
+        }
+
+        .box4 li {
             background: rgba(255, 245, 60, 0.6);
-            transform: translateY(100px) rotateX(90deg);
         }
 
         .box5 {
-            background: rgba(255, 100, 60, 0.6);
             transform: translateX(100px) rotateY(90deg);
         }
 
+        .box5 li {
+            background: rgba(255, 100, 60, 0.6);
+        }
+
         .box6 {
+            transform: translateX(-100px) rotateX(180deg) rotateY(270deg);
+        }
+
+        .box6 li {
             background: rgba(255, 39, 40, 0.6);
-            transform: translateX(-100px) rotateY(90deg);
         }
 
         @keyframes aaa {
@@ -100,12 +132,84 @@
 <body>
 <div class="all">
     <div class="box">
-        <div class="box1">1</div>
-        <div class="box2">2</div>
-        <div class="box3">3</div>
-        <div class="box4">4</div>
-        <div class="box5">5</div>
-        <div class="box6">6</div>
+        <div class="box1">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li>1</li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="box2">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li>2</li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="box3">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li>3</li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="box4">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li>4</li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="box5">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li>5</li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="box6">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li>6</li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
     </div>
 </div>
 

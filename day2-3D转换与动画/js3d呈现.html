@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <title>js过渡3D</title>
@@ -18,14 +18,9 @@
             transform-style: preserve-3d;
             width: 200px;
             height: 200px;
-            /*animation: aaa 12s infinite;*/
             transform: rotateX(20deg) rotateY(20deg) rotateZ(20deg);
             transition: all 2s;
         }
-
-        /*.box:hover {*/
-        /*    transform: rotateY(90deg);*/
-        /*}*/
 
         .box div {
             position: absolute;
@@ -65,33 +60,6 @@
             background: rgba(255, 39, 40, 0.6);
             transform: translateX(-100px) rotateY(90deg);
         }
-
-        /*@keyframes aaa {*/
-        /*    6% {*/
-        /*        transform: rotateY(45deg) rotateZ(45deg);*/
-        /*    }*/
-        /*    18% {*/
-        /*        transform: rotateX(45deg) rotateZ(45deg);*/
-        /*    }*/
-        /*    31% {*/
-        /*        transform: rotateY(135deg) rotateZ(135deg);*/
-        /*    }*/
-        /*    43% {*/
-        /*        transform: rotateX(135deg) rotateZ(135deg);*/
-        /*    }*/
-        /*    56% {*/
-        /*        transform: rotateY(225deg) rotateZ(225deg);*/
-        /*    }*/
-        /*    68% {*/
-        /*        transform: rotateX(225deg) rotateZ(225deg);*/
-        /*    }*/
-        /*    81% {*/
-        /*        transform: rotateY(315deg) rotateZ(315deg);*/
-        /*    }*/
-        /*    94% {*/
-        /*        transform: rotateX(135deg) rotateZ(135deg);*/
-        /*    }*/
-        /*}*/
     </style>
 </head>
 <body>
@@ -107,16 +75,16 @@
 </div>
 
 <script>
-    let box = document.querySelector('.box');
+    let box = document.querySelector('.box')
+    let abc = {translateX: 0, translateY: 0, rotateX: 0, rotateY: 0}
     let f = function () {
-        let x = Math.random() * 500 + (-(Math.random() * 500));
-        let y = Math.random() * 300 + (-(Math.random() * 300));
-        let rotateX = Math.random() * 360 + (-(Math.random() * 360));
-        let rotateY = Math.random() * 360 + (-(Math.random() * 360));
-        console.log(x, y)
+        abc.translateX = Math.random() * 500 + (-(Math.random() * 500)) + 'px'
+        abc.translateY = Math.random() * 300 + (-(Math.random() * 300)) + 'px'
+        abc.rotateX = Math.random() * 360 + (-(Math.random() * 360)) + 'deg'
+        abc.rotateY = Math.random() * 360 + (-(Math.random() * 360)) + 'deg'
         box.style.transform = `
-            translateX(${x}px) translateY(${y}px)
-            rotateX(${rotateX}deg) rotateY(${rotateY}deg)
+            translateX(${abc.translateX}) translateY(${abc.translateY})
+            rotateX(${abc.rotateX}) rotateY(${abc.rotateY})
         `
     }
     setTimeout(f, 50)
