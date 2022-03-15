@@ -1,4 +1,4 @@
-window.onload = () => {
+window.addEventListener('load',() => {
     let as = document.querySelectorAll('a')
     console.log(as.length)
     for (let i = 0; i < as.length; i++) {
@@ -21,4 +21,4 @@ Y　　　　　\`　  /　 　/
 7　　　　　　　|／
 ＞―r￣￣\`ｰ―＿
     `)
-}
+})

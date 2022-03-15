@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vuejs/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model='x'>
+    <input type="text" v-model='m'>
+    全名 ： {{xm()}}
+<!--    取返回值时需要加上函数括号-->
+</div>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            x: '',
+            m: '',
+        },
+        methods: {
+            xm(){
+                return this.x + ' ' + this.m
+            }
+        }
+    })
+</script>
+</body>
+</html>

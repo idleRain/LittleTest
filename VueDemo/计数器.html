@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vuejs/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>当前计数 ： {{num}}</p>
+    <button @click="add">+</button>
+    <button @click="sum">-</button>
+</div>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            num : 0
+        },
+        methods:{
+            add(){
+                this.num ++;
+            },
+            sum(){
+                this.num --;
+            }
+        }
+    })
+</script>
+</body>
+</html>

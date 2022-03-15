@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vuejs/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>a的值是{{sums.a}}</p>
+    <p>b的值是{{sums.b}}</p>
+    <button @click="sums.a++">a+1</button>
+    <button @click="sums.b++">b+1</button>
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            sums:{
+                a:1, b:2
+            }
+        },
+        watch:{
+            sums: {
+                // 深度监视多级结构中的所有属性变化，默认值是false
+                deep:true,
+                handler() {
+                    console.log('sums被改变了？!')
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vuejs/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    姓：<input type="text" v-model='x'><br>
+    名：<input type="text" v-model='m'><br>
+    测试：<input type="text" v-model='xxx'><br>
+    <p>全名 ： {{xm}}</p>
+</div>
+
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            x: '',
+            m: '',
+            xxx: ''
+        },
+        // 计算属性全写
+        computed:{
+            xm:{
+                get(){
+                    console.log('get被执行')
+                    return this.x + '' + this.m
+                },
+                set(velue){
+                    console.log('set被执行',velue)
+                    let arr = velue
+                    this.x = arr[0]
+                    this.m = arr[1]
+                }
+            }
+        }
+        /* 计算属性简写 ： 不不考虑set()函数
+        computed:{
+            xm(){
+                    console.log('get被执行')
+                    return this.x + '' + this.m
+                }
+            }
+         */
+    })
+</script>
+</body>
+</html>
