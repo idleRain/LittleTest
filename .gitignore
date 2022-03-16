@@ -1,3 +1,4 @@
-.idea
+/.idea/
 *.zip
 *.rar
+/node_modules/
