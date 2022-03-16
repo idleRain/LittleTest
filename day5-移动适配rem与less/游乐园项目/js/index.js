@@ -1,21 +1,21 @@
 window.addEventListener('load', function () {
-    let as = document.querySelector('.toolbar').querySelectorAll('a')
-    for (let i = 0; i < as.length; i++) {
-        as[i].addEventListener('click', function () {
-            for (let j = 0; j < as.length; j++) {
-                as[j].classList.remove('active')
+    let isA = document.querySelector('.toolbar').querySelectorAll('a')
+    for (let i = 0; i < isA.length; i++) {
+        isA[i].addEventListener('click', function () {
+            for (let j = 0; j < isA.length; j++) {
+                isA[j].classList.remove('active')
             }
-            as[i].classList.add('active')
+            isA[i].classList.add('active')
         })
     }
     let isI = document.querySelectorAll('.icon-shoucang1')
     for (let k = 0; k < isI.length; k++) {
         let index = false
-        isI[k].addEventListener('click',function (){
+        isI[k].addEventListener('click', function () {
             index = !index
-            if (index){
+            if (index) {
                 this.style.color = '#f00'
-            }else {
+            } else {
                 this.style.color = '#fff'
             }
         })
