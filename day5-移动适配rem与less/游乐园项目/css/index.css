@@ -431,6 +431,21 @@ template {
 [hidden] {
   display: none;
 }
+@media (min-width: 540px) {
+  body {
+    margin: 0 auto;
+    width: 540px !important;
+  }
+  html {
+    font-size: 54px !important;
+  }
+  .toolbar {
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 540px !important;
+  }
+}
 body {
   background: #f0f0f0;
 }

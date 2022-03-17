@@ -5,7 +5,7 @@ window.addEventListener('load', function () {
             for (let j = 0; j < isA.length; j++) {
                 isA[j].classList.remove('active')
             }
-            isA[i].classList.add('active')
+            this.classList.add('active')
         })
     }
     let isI = document.querySelectorAll('.icon-shoucang1')

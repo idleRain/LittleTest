@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .boxx{
+            display: flex;
+            justify-content: space-between;
+            margin: 100px auto;
+            width: 600px;
+            height: 200px;
+        }
+        .boxx>div{
+            flex: 1;
+            height: 200px;
+            background: pink;
+        }
+        @media (max-width: 800px) {
+            .box2{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="boxx">
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+</div>
+</body>
+</html>

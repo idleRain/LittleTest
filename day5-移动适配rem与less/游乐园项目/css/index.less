@@ -1,6 +1,21 @@
 // out: ../css/
 @import url(base.less);
 @import url(normalize.less);
+@media (min-width: 540px) {
+  body{
+    margin: 0 auto;
+    width: 540px !important;
+  }
+  html{
+    font-size: 54px !important;
+  }
+  .toolbar{
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 540px !important;
+  }
+}
 
 @baseSize: 37.5rem;
 
