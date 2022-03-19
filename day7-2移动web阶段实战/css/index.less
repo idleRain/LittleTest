@@ -1,0 +1,350 @@
+@import "../less/base";
+
+@bz: 3.75vw;
+@color: #101010;
+
+//头部开始
+.header {
+  display: flex;
+  position: fixed;
+  padding: (15 / @bz);
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: #fff;
+  z-index: 9999;
+
+  .header-left {
+    margin-right: (25 / @bz);
+    width: (26 / @bz);
+
+    a {
+      font-size: (13 / @bz);
+      color: @color;
+    }
+  }
+
+  .header-search {
+    flex: 1;
+    position: relative;
+
+    input {
+      margin: 0;
+      padding-left: (40 / @bz);
+      height: (32 / @bz);
+      width: 100%;
+      border-radius: (32 / @bz);
+      font-size: (12 / @bz);
+      background: #f7f7f7;
+
+      &::placeholder {
+        color: #919191;
+      }
+    }
+
+    button {
+      position: absolute;
+      left: (18 / @bz);
+      top: (9 / @bz);
+      width: (14 / @bz);
+      height: (14 / @bz);
+      background: url("../images/header_search.png") no-repeat;
+      background-size: 100%;
+    }
+  }
+
+  .header-right {
+    margin-left: (26 / @bz);
+
+    a {
+      display: block;
+      width: (20 / @bz);
+      height: (20 / @bz);
+      background: url("../images/header_news.png") no-repeat;
+      background-size: 100%;
+    }
+  }
+}
+
+//头部结束
+
+//main主体开始
+.main {
+  padding: (70 / @bz) (15 / @bz) (55 / @bz);
+  //banner开始
+  .banner {
+    .banner-pic {
+      display: block;
+      height: (130 / @bz);
+      overflow: hidden;
+      border-radius: (8 / @bz);
+      box-shadow: 0 (2 / @bz) (4/ @bz) #ccc;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .banner-btn {
+      display: flex;
+      margin-top: (8 / @bz);
+      justify-content: center;
+
+      a {
+        width: (6 / @bz);
+        height: (3 / @bz);
+        border-radius: (1.5 / @bz);
+        background: #dfdfdf;
+        margin: 0 (4 / @bz);
+
+        &.active {
+          width: (8 / @bz);
+          background: #303030;
+        }
+      }
+    }
+  }
+
+  //banner结束
+
+  //合租整租开始
+  .rentnav {
+    display: flex;
+    margin-top: (20 / @bz);
+
+    a {
+      flex: 1;
+      height: (70 / @bz);
+      border-radius: (5 / @bz);
+      box-shadow: 0 0 (10 / @bz) #dfdfdf;
+
+      &:first-child {
+        margin-right: (10 / @bz);
+      }
+    }
+  }
+
+  //合租整租结束
+
+  //超级优惠开始
+  .discount {
+    margin-top: (30 / @bz);
+
+    .title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h3 {
+        font-size: (18 / @bz);
+      }
+
+      a {
+        padding: (6 / @bz) (10 / @bz);
+
+        i {
+          display: block;
+          height: (14 / @bz);
+          width: (7 / @bz);
+          background: url("../images/content_icon_next.png") no-repeat;
+          background-size: 100%;
+        }
+      }
+    }
+
+    .content {
+      margin-top: (10 / @bz);
+      display: flex;
+
+      a {
+        flex: 1;
+
+        &:first-child {
+          margin-right: (10 / @bz);
+        }
+
+        .pic {
+          overflow: hidden;
+          border-radius: (5 / @bz);
+        }
+
+        .info {
+          margin-top: (10 / @bz);
+
+          h4 {
+            margin-bottom: (5 / @bz);
+            font-size: (14 / @bz);
+            color: @color;
+            font-weight: 700;
+          }
+
+          p:first-child {
+            color: #f8f8f8;
+            font-size: (10 / @bz);
+          }
+
+          p:last-child {
+            margin-top: (5 / @bz);
+            font-size: (12 / @bz);
+            color: #f39800;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+
+  //超级优惠结束
+
+  //广告位招租开始
+  .bannerRent {
+    margin: (20 / @bz) 0;
+  }
+
+  //广告位招租结束
+
+  //推荐模块开始
+  .recommend {
+    .title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: (10 / @bz);
+
+      h3 {
+        font-size: (18 / @bz);
+      }
+
+      .title-nav {
+
+      }
+    }
+
+    .recommend-item {
+      margin: (10 / @bz) 0;
+
+      a {
+        display: flex;
+
+        .pic {
+          flex: 1;
+          margin-right: (10 / @bz);
+        }
+
+        .info {
+          flex: 2;
+          overflow: hidden;
+
+          h4 {
+            font-size: (14 / @bz);
+            color: @color;
+            font-weight: 700;
+          }
+
+          p {
+            margin-top: (6 / @bz);
+            font-size: (12 / @bz);
+          }
+
+          .tag {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: (8 / @bz);
+
+            em {
+              text-align: center;
+              line-height: (16 / @bz);
+              margin-right: (10 / @bz);
+              width: (45 / @bz);
+              height: (16 / @bz);
+              border: (1 / @bz) solid #cfcfcf;
+              border-radius: (3 / @bz);
+            }
+          }
+
+          .price {
+            margin-top: (6 / @bz);
+            color: #f39800;
+
+            span {
+              font-size: (14 / @bz);
+              font-weight: 700;
+            }
+          }
+        }
+      }
+    }
+    .more{
+      margin: (15 / @bz) auto;
+      text-align: center;
+      width: (260 / @bz);
+      height: (38 / @bz);
+      background: #f2f2f2;
+      border-radius: (19 / @bz);
+      overflow: hidden;
+      a{
+        display: block;
+        width: 100%;
+        height: 100%;
+        line-height: (38 / @bz);
+        font-size: (14 / @bz);
+      }
+    }
+  }
+  //推荐模块结束
+
+  //品牌故事入口开始
+  .brandStory{
+    height: (85 / @bz);
+    border-radius: (6 / @bz);
+    overflow: hidden;
+    a {
+      display: block;
+      height: 100%;
+      background: url("../upload/gushirukou_home.png") no-repeat;
+      background-size: 100%;
+    }
+  }
+  //品牌故事入口结束
+}
+
+//main主体结束
+
+//footer开始
+.footer {
+  position: fixed;
+  display: flex;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: (50 / @bz);
+  box-shadow: (2 / @bz) 0 (4 / @bz) #eee;
+  justify-content: space-around;
+  align-items: center;
+  background: #fff;
+  z-index: 9999;
+
+  a {
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    height: 100%;
+    align-items: center;
+    flex-direction: column;
+    font-size: (10 /@bz);
+    color: #cacaca;
+
+    &.active {
+      color: #242424;
+    }
+
+    i {
+      font-size: (20 / @bz);
+    }
+
+    span {
+      margin-top: (8 / @bz);
+    }
+  }
+}

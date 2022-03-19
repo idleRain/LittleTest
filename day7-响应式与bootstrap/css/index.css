@@ -1,0 +1,40 @@
+.navbar {
+  position: fixed;
+  padding: 10px 5px;
+  width: 100%;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0);
+  border: none;
+}
+.navbar .navbar-collapse {
+  border: none;
+}
+.navbar .navbar-nav {
+  margin-top: 10px;
+}
+.navbar .navbar-nav li a {
+  color: hsla(0, 0%, 100%, 0.65);
+  font-size: 16px;
+}
+.navbar .navbar-nav li a.moren {
+  color: #f2b535;
+}
+.navbar .navbar-nav li a:hover {
+  color: #f2b535;
+}
+@media (max-width: 768px) {
+  .navbar-collapse {
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+  }
+}
+.title {
+  margin-top: 50px;
+  text-align: center;
+}
+.title p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #999;
+}
+/*# sourceMappingURL=index.css.map */

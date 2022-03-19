@@ -7,9 +7,17 @@
 <body>
 <div id="app">
     <ul>
-<!--        第一个参数为形参，第二个参数为索引值-->
+        <!--        遍历数组-->
+        <!--        第一个参数为形参，第二个参数为索引值-->
         <li v-for="(p,index) in persons" :key="p.id">
             {{index}} -- {{p.id}} -- {{p.name}} -- {{p.sex}} -- {{p.age}}
+        </li>
+    </ul>
+    <ul>
+        <!--        遍历对象-->
+        <!--        第一个参数为数据，第二个参数为索引值-->
+        <li v-for="(c,index) in car" :key="index">
+            {{index}} -- {{c}}
         </li>
     </ul>
 </div>
@@ -17,25 +25,30 @@
 <script src="vuejs/vue.js"></script>
 <script>
     const vm = new Vue({
-        el:'#app',
-        data:{
-            persons:[
+        el: '#app',
+        data: {
+            persons: [
                 {
-                    id:'001',name:'小丁',sex:'男',age:'18'
+                    id: '001', name: '小丁', sex: '男', age: '18'
                 },
                 {
-                    id:'002',name:'小姜',sex:'女',age:'19'
+                    id: '002', name: '小姜', sex: '女', age: '19'
                 },
                 {
-                    id:'003',name:'小李',sex:'男',age:'20'
+                    id: '003', name: '小李', sex: '男', age: '20'
                 },
                 {
-                    id:'004',name:'小刘',sex:'女',age:'21'
+                    id: '004', name: '小刘', sex: '女', age: '21'
                 },
                 {
-                    id:'005',name:'小赵',sex:'男',age:'22'
+                    id: '005', name: '小赵', sex: '男', age: '22'
                 }
-            ]
+            ],
+            car: {
+                id: '001',
+                name: '丰田',
+                price: '300块'
+            }
         }
     })
 </script>

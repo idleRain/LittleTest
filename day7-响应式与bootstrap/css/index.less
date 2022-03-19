@@ -1,0 +1,41 @@
+.navbar {
+  position: fixed;
+  padding: 10px 5px;
+  width: 100%;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  .navbar-collapse{
+    border: none;
+  }
+  .navbar-nav{
+    margin-top: 10px;
+    li{
+      a{
+        color: hsla(0,0%,100%,.65);
+        font-size: 16px;
+        &.moren{
+          color: #f2b535;
+        }
+        &:hover{
+          color: #f2b535;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 768px){
+  .navbar-collapse{
+    background: rgba(0,0,0,.8);
+    text-align: center;
+  }
+}
+.title{
+  margin-top: 50px;
+  text-align: center;
+  p{
+    margin-top: 10px;
+    font-size: 16px;
+    color: #999;
+  }
+}

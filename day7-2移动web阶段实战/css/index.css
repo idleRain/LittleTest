@@ -1,0 +1,394 @@
+@charset "utf-8";
+/* css reset:为什么? 为了重置默认样式, 并让各大浏览器的样式统一 */
+/* 初始化 */
+body,
+div,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+select,
+p,
+dl,
+dt,
+dd,
+a,
+img,
+button,
+form,
+table,
+th,
+tr,
+td,
+tbody,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+  /* 给我们能用到的盒子都加上了, box-sizing: border-box; */
+  box-sizing: border-box;
+}
+body {
+  font: 12px/1 "Microsoft YaHei", "宋体", Tahoma, Arial, sans-serif;
+  background-color: #fdfdfd;
+}
+/*去除边框*/
+fieldset,
+img,
+input,
+button,
+textarea {
+  border: none;
+  /*去除的蓝色小边框*/
+  outline-style: none;
+}
+/*禁止表单域缩放*/
+textarea {
+  resize: none;
+}
+a {
+  text-decoration: none;
+  color: #969696;
+  /* 取消链接高亮(移动端)  */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+/* 图片自适应 */
+img {
+  width: 100%;
+  /*解决图片底部对其问题, 底部对齐问题, 只对于行内块元素有 */
+  display: block;
+}
+ul,
+ol {
+  list-style: none;
+}
+/* 把所有的标题的样式全部重置了 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 100%;
+}
+/* 废物利用 */
+em,
+i {
+  font-style: normal;
+}
+/* 提供了一些公共类 */
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+/*清除浮动*/
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+/*单行溢出*/
+.one-txt-cut {
+  overflow: hidden;
+  /* 文字在一行显示, 不换行 */
+  white-space: nowrap;
+  /* 文字溢出显示省略号 */
+  text-overflow: ellipsis;
+}
+/*多行溢出*/
+.txt-cut {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.header {
+  display: flex;
+  position: fixed;
+  padding: 4vw;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: #fff;
+  z-index: 9999;
+}
+.header .header-left {
+  margin-right: 6.66666667vw;
+  width: 6.93333333vw;
+}
+.header .header-left a {
+  font-size: 3.46666667vw;
+  color: #101010;
+}
+.header .header-search {
+  flex: 1;
+  position: relative;
+}
+.header .header-search input {
+  margin: 0;
+  padding-left: 10.66666667vw;
+  height: 8.53333333vw;
+  width: 100%;
+  border-radius: 8.53333333vw;
+  font-size: 3.2vw;
+  background: #f7f7f7;
+}
+.header .header-search input::placeholder {
+  color: #919191;
+}
+.header .header-search button {
+  position: absolute;
+  left: 4.8vw;
+  top: 2.4vw;
+  width: 3.73333333vw;
+  height: 3.73333333vw;
+  background: url("../images/header_search.png") no-repeat;
+  background-size: 100%;
+}
+.header .header-right {
+  margin-left: 6.93333333vw;
+}
+.header .header-right a {
+  display: block;
+  width: 5.33333333vw;
+  height: 5.33333333vw;
+  background: url("../images/header_news.png") no-repeat;
+  background-size: 100%;
+}
+.main {
+  padding: 18.66666667vw 4vw 14.66666667vw;
+}
+.main .banner .banner-pic {
+  display: block;
+  height: 34.66666667vw;
+  overflow: hidden;
+  border-radius: 2.13333333vw;
+  box-shadow: 0 0.53333333vw 1.06666667vw #ccc;
+}
+.main .banner .banner-pic img {
+  width: 100%;
+  height: 100%;
+}
+.main .banner .banner-btn {
+  display: flex;
+  margin-top: 2.13333333vw;
+  justify-content: center;
+}
+.main .banner .banner-btn a {
+  width: 1.6vw;
+  height: 0.8vw;
+  border-radius: 0.4vw;
+  background: #dfdfdf;
+  margin: 0 1.06666667vw;
+}
+.main .banner .banner-btn a.active {
+  width: 2.13333333vw;
+  background: #303030;
+}
+.main .rentnav {
+  display: flex;
+  margin-top: 5.33333333vw;
+}
+.main .rentnav a {
+  flex: 1;
+  height: 18.66666667vw;
+  border-radius: 1.33333333vw;
+  box-shadow: 0 0 2.66666667vw #dfdfdf;
+}
+.main .rentnav a:first-child {
+  margin-right: 2.66666667vw;
+}
+.main .discount {
+  margin-top: 8vw;
+}
+.main .discount .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main .discount .title h3 {
+  font-size: 4.8vw;
+}
+.main .discount .title a {
+  padding: 1.6vw 2.66666667vw;
+}
+.main .discount .title a i {
+  display: block;
+  height: 3.73333333vw;
+  width: 1.86666667vw;
+  background: url("../images/content_icon_next.png") no-repeat;
+  background-size: 100%;
+}
+.main .discount .content {
+  margin-top: 2.66666667vw;
+  display: flex;
+}
+.main .discount .content a {
+  flex: 1;
+}
+.main .discount .content a:first-child {
+  margin-right: 2.66666667vw;
+}
+.main .discount .content a .pic {
+  overflow: hidden;
+  border-radius: 1.33333333vw;
+}
+.main .discount .content a .info {
+  margin-top: 2.66666667vw;
+}
+.main .discount .content a .info h4 {
+  margin-bottom: 1.33333333vw;
+  font-size: 3.73333333vw;
+  color: #101010;
+  font-weight: 700;
+}
+.main .discount .content a .info p:first-child {
+  color: #f8f8f8;
+  font-size: 2.66666667vw;
+}
+.main .discount .content a .info p:last-child {
+  margin-top: 1.33333333vw;
+  font-size: 3.2vw;
+  color: #f39800;
+  font-weight: 700;
+}
+.main .bannerRent {
+  margin: 5.33333333vw 0;
+}
+.main .recommend .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.66666667vw;
+}
+.main .recommend .title h3 {
+  font-size: 4.8vw;
+}
+.main .recommend .recommend-item {
+  margin: 2.66666667vw 0;
+}
+.main .recommend .recommend-item a {
+  display: flex;
+}
+.main .recommend .recommend-item a .pic {
+  flex: 1;
+  margin-right: 2.66666667vw;
+}
+.main .recommend .recommend-item a .info {
+  flex: 2;
+  overflow: hidden;
+}
+.main .recommend .recommend-item a .info h4 {
+  font-size: 3.73333333vw;
+  color: #101010;
+  font-weight: 700;
+}
+.main .recommend .recommend-item a .info p {
+  margin-top: 1.6vw;
+  font-size: 3.2vw;
+}
+.main .recommend .recommend-item a .info .tag {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 2.13333333vw;
+}
+.main .recommend .recommend-item a .info .tag em {
+  text-align: center;
+  line-height: 4.26666667vw;
+  margin-right: 2.66666667vw;
+  width: 12vw;
+  height: 4.26666667vw;
+  border: 0.26666667vw solid #cfcfcf;
+  border-radius: 0.8vw;
+}
+.main .recommend .recommend-item a .info .price {
+  margin-top: 1.6vw;
+  color: #f39800;
+}
+.main .recommend .recommend-item a .info .price span {
+  font-size: 3.73333333vw;
+  font-weight: 700;
+}
+.main .recommend .more {
+  margin: 4vw auto;
+  text-align: center;
+  width: 69.33333333vw;
+  height: 10.13333333vw;
+  background: #f2f2f2;
+  border-radius: 5.06666667vw;
+  overflow: hidden;
+}
+.main .recommend .more a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 10.13333333vw;
+  font-size: 3.73333333vw;
+}
+.main .brandStory {
+  height: 22.66666667vw;
+  border-radius: 1.6vw;
+  overflow: hidden;
+}
+.main .brandStory a {
+  display: block;
+  height: 100%;
+  background: url("../upload/gushirukou_home.png") no-repeat;
+  background-size: 100%;
+}
+.footer {
+  position: fixed;
+  display: flex;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 13.33333333vw;
+  box-shadow: 0.53333333vw 0 1.06666667vw #eee;
+  justify-content: space-around;
+  align-items: center;
+  background: #fff;
+  z-index: 9999;
+}
+.footer a {
+  display: flex;
+  justify-content: center;
+  width: 20%;
+  height: 100%;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2.66666667vw;
+  color: #cacaca;
+}
+.footer a.active {
+  color: #242424;
+}
+.footer a i {
+  font-size: 5.33333333vw;
+}
+.footer a span {
+  margin-top: 2.13333333vw;
+}
+/*# sourceMappingURL=index.css.map */
