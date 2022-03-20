@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="num1">+
+<input type="number" id="num2">
+<button>点我点我</button>
+<h2>结果为：<span></span></h2>
+<script>
+
+    let btn = document.querySelector('button')
+    btn.addEventListener('click', function () {
+        let num1 = document.querySelector('#num1').value
+        let num2 = document.querySelector('#num2').value
+        document.querySelector('span').innerHTML = Number(num1) + Number(num2)
+    })
+</script>
+</body>
+</html>

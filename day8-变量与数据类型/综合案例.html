@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            margin: 100px auto;
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px 20px;
+            border: 1px solid #000;
+        }
+        button{
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <table>
+        <tr>
+            <th>商品名称</th>
+            <th>商品价格</th>
+            <th>数量</th>
+            <th>总价</th>
+            <th>收货地址</th>
+        </tr>
+        <tr>
+            <td v-for="t in mobile">{{t}}</td>
+        </tr>
+    </table>
+    <button @click="dd() , xm()">点我点我</button>
+</div>
+
+<script src="../VueDemo/vuejs/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            mobile: {
+                mc: '小米手机',
+                jg: 0,
+                sl: 0,
+                zj: 0,
+                dz:''
+            }
+        },
+        methods:{
+          dd:function (){
+              let mobile = this.mobile
+              mobile.jg = prompt('请输入价格：')
+              mobile.sl = prompt('请输入数量：')
+              mobile.dz = prompt('请输入地址：')
+          }
+        },
+        computed:{
+            xm(){
+                this.mobile.zj = this.mobile.jg * this.mobile.sl
+            }
+        }
+
+    })
+</script>
+</body>
+</html>
