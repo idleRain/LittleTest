@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>输入年份</h2>
+<input type="number">
+<button>点我点我</button>
+<script>
+    let h2 = document.querySelector('h2')
+    document.querySelector('button').addEventListener('click', function () {
+        let num = +document.querySelector('input').value
+        if (num % 4 === 0 && num % 100 !== 0 || num % 400 === 0) {
+            h2.innerHTML = num + '年是闰年！'
+        } else {
+            h2.innerHTML = num + '年不是闰年！'
+        }
+    })
+</script>
+</body>
+</html>

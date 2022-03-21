@@ -31,15 +31,16 @@
             <th>收货地址</th>
         </tr>
         <tr>
-            <td v-for="t in mobile">{{t}}</td>
+            <td v-for="(t,index) in mobile" :key="index">{{t}}</td>
         </tr>
     </table>
+
     <button @click="dd() , xm()">点我点我</button>
 </div>
 
 <script src="../VueDemo/vuejs/vue.js"></script>
 <script>
-    new Vue({
+    const vm = new Vue({
         el: '#app',
         data: {
             mobile: {

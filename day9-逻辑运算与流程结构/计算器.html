@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div#app {
+            display: flex;
+            width: 400px;
+            margin: 100px auto;
+            padding: 50px 0;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid;
+            box-sizing: border-box;
+        }
+
+        input {
+            margin: 20px 0;
+        }
+
+        button {
+            background: #ccc;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <h2>计算器</h2>
+    <input type="text" v-model="num1">
+    <input type="text" v-model="num2">
+    <div class="byn">
+        <button @click="add">+</button>
+        <button @click="sum">-</button>
+        <button @click="cheng">*</button>
+        <button @click="chu">/</button>
+        <button @click="yu">%</button>
+    </div>
+    <h2>结果为：{{number}}</h2>
+</div>
+<script src="../VueDemo/vuejs/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            num1: '',
+            num2: '',
+            number: ''
+        },
+        methods: {
+            add() {
+                this.number = +this.num1 + +this.num2
+            },
+            sum() {
+                this.number = +this.num1 - +this.num2
+            },
+            cheng() {
+                this.number = +this.num1 * +this.num2
+            },
+            chu() {
+                this.number = Math.round(+this.num1 / +this.num2 * 10000) / 10000
+            },
+            yu(){
+                this.number = +this.num1 % +this.num2
+            }
+        }
+    })
+</script>
+</body>
+</html>

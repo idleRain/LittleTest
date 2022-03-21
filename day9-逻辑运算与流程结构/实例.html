@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let num = 0;
+
+    (function f() {
+        let i = prompt(`
+      选择操作：
+         1、存钱
+         2、取钱
+         3、查看余额
+         4、退出
+    `)
+        if (i === '1') {
+            let cun = prompt('输入存钱金额：')
+            num += +cun
+            f()
+        } else if (i === '2') {
+            let qu = prompt('输入取钱金额：')
+            num -= +qu
+            f()
+        } else if (i === '3') {
+            alert('当前余额：' + num)
+            f()
+        } else if (i === '4') {
+            return 0
+        } else {
+            alert('输入有误，请重新输入')
+            f()
+        }
+    })()
+</script>
+</body>
+</html>
