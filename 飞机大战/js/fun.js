@@ -23,7 +23,7 @@ function arrRemove(arr, obj) {
     }
 }
 
-// 飞机爆炸
+// 爆炸
 function bz() {
     let bzArr = [];
     let bzImg = new Image();
