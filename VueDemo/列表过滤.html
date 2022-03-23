@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>列表过滤</h2>
+    <input type="text" placeholder="搜索" v-model="search">
+    <ul>
+        <li v-for="(p,index) in newPersons" :key="id">
+            {{p.id}} -- {{p.name}} -- {{p.sex}} -- {{p.age}}
+        </li>
+    </ul>
+</div>
+
+<script src="vuejs/vue.js"></script>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            search:'',      //输入框input绑定的变量
+            persons: [
+                {id: '001', name: '马冬梅', sex: '男', age: '18'},
+                {id: '002', name: '周冬雨', sex: '女', age: '19'},
+                {id: '003', name: '周杰伦', sex: '男', age: '20'},
+                {id: '004', name: '温兆伦', sex: '女', age: '21'}
+            ],
+            // 原本的数组对象不能更改，所以声明一个空数组来装新生成的数组对象
+            newPersons:[]
+        },
+        watch:{
+            search:{
+                // 初始化时自动执行一次，默认值是false
+                immediate:true,
+                handler(val){
+                    this.newPersons = this.persons.filter((p)=>{       //这个p是形参
+                        // 返回名字中含有search字符的数组对象，如果有indexOf()返回值则大于-1，没有则等于-1
+                        return p.name.indexOf(val) !== -1
+                    })
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

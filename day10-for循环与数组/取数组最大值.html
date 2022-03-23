@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [5, 2, 9, 4, 8, 7, 3]
+    let max = arr[0]
+    let min = arr[0]
+
+    for (let i = 0; i < arr.length; i++) {
+        if (max < arr[i]) {
+            max = arr[i]
+        }
+        if (min > arr[i]) {
+            min = arr[i]
+        }
+    }
+    console.log(max + ' ' + min)
+    console.log('最大值' + Math.max.apply(null, arr))
+    console.log('最小值' + Math.min.apply(null, arr))
+</script>
+</body>
+</html>
