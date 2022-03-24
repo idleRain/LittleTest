@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>列表排序</h2>
+    <input type="text" placeholder="搜索" v-model="search">
+    <button @click="sortType = 2">年龄升序</button>
+    <button @click="sortType = 1">年龄降序</button>
+    <button @click="sortType = 0">原顺序</button>
+    <ul>
+        <li v-for="(p,index) in filePersons" :key="p.id">
+            {{p.id}} -- {{p.name}} -- {{p.sex}} -- {{p.age}}
+        </li>
+    </ul>
+</div>
+
+<script src="vuejs/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            search: '',      //输入框input绑定的变量
+            persons: [
+                {id: '001', name: '马冬梅', sex: '男', age: '18'},
+                {id: '002', name: '周冬雨', sex: '女', age: '22'},
+                {id: '003', name: '周杰伦', sex: '男', age: '13'},
+                {id: '004', name: '温兆伦', sex: '女', age: '39'}
+            ],
+            sortType: 0     //接收升序，降序及原序 2降序 1升序 0原序
+        },
+        computed: {
+            filePersons() {
+                const arr = this.persons.filter((p) => {
+                    return p.name.indexOf(this.search) !== -1
+                })
+
+                if (this.sortType){     // 判断是否排序
+                    arr.sort((a,b)=>{
+                        return this.sortType === 1 ? b.age - a.age : a.age - b.age
+                    })
+                }
+                return arr
+            }
+        }
+    })
+</script>
+</body>
+</html>

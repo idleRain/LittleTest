@@ -4,19 +4,28 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .box{
+        :root {
+            /*让页面以黑暗模式渲染*/
+            color-scheme: dark;
+        }
+
+        .box {
             margin: 200px auto;
             width: 1200px;
             height: 200px;
             border: 1px solid #f00;
         }
-        img{
+
+        img {
             width: 200px;
             height: 200px;
             /*border-radius: 60%;*/
             transition: all linear 10s;
         }
-        .box:hover img{transform: translateX(1000px) rotate(36000deg);}
+
+        .box:hover img {
+            transform: translateX(1000px) rotate(36000deg);
+        }
     </style>
 </head>
 <body>

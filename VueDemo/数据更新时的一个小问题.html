@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>人员列表</h2>
+    <button @click="upDateM">改变马冬梅的信息</button>
+    <ul>
+        <li v-for="(p,index) in persons" :key="p.id">
+            {{p.id}} -- {{p.name}} -- {{p.sex}} -- {{p.age}}
+        </li>
+    </ul>
+</div>
+
+<script src="vuejs/vue.js"></script>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            persons: [
+                {id: '001', name: '马冬梅', sex: '男', age: '18'},
+                {id: '002', name: '周冬雨', sex: '女', age: '22'},
+                {id: '003', name: '周杰伦', sex: '男', age: '13'},
+                {id: '004', name: '温兆伦', sex: '女', age: '39'}
+            ]
+        },
+        methods: {
+            upDateM() {
+                // this.persons[0].name = '玛玛哈哈'         //这种写法奏效
+                // this.persons[0].age = '99'               //这种写法奏效
+                // this.persons[0].sex = '女'               //这种写法奏效
+
+                // 这种写法数据已经发生改变了，但 Vue 没有监测到，页面不会有任何变化
+                this.persons[0] = {id: '001', name: '玛玛哈哈', sex: '女', age: '99'}
+            }
+        }
+    })
+</script>
+</body>
+</html>

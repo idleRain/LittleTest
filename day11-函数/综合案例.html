@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let m = +prompt('输入秒：')
+  function f(t){
+      let h = Math.floor(t / 60 / 60)
+      let m = Math.floor(t / 60 % 60)
+      let s = Math.floor(t % 60)
+      h = h < 10 ? '0' + h : h
+      m = m < 10 ? '0' + m : m
+      s = s < 10 ? '0' + s : s
+      return `${h}时，${m}分，${s}秒`
+  }
+  console.log(f(m))
+</script>
+</body>
+</html>

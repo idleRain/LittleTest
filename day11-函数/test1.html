@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function ab(a = 0, b = 0) {
+        let num = 0
+        if (a < b) {
+            for (a; a <= b; a++) {
+                num += a
+            }
+            console.log(num)
+        }else {
+            alert('传参有误，重新输入')
+        }
+    }
+    ab(10,20)
+    ab(0,100)
+    // ab(100,50)
+</script>
+</body>
+</html>
