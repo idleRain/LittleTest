@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let data = {
+        name: '小丁',
+        age: 18
+    }
+    //创建一个监测的实例对象，用于监测 data 的数据变化
+    const obs = new Observer(data)
+    console.log(obs)
+    //准备一个 vm 实例对象
+    let vm = {}
+    vm._data = data = obs
+
+    function Observer(obj) {
+        //汇总对象中所有属性形成一个数组
+        const keys = Object.keys(obj)
+        //遍历新生成的数组
+        keys.forEach((k) => {
+            Object.defineProperty(this, k, {
+                get() {
+                    return obj[k]
+                },
+                set(val) {
+                    console.log(`${k}被改了，呜呜呜`)
+                    obj[k] = val
+                }
+            })
+        })
+    }
+</script>
+</body>
+</html>

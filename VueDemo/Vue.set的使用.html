@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <button @click="fn">点我点我</button>
+    <p v-for="(s,index) in school" :key="index">
+        {{s}}
+    </p>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            school: {
+                name: '小丁',
+                age: 18,
+                sex: '男',
+                hobby:['抽烟','喝酒','烫头']
+            }
+        },
+        methods: {
+            fn() {
+                // 第一个参数是给谁添加，第二个参数是添加什么属性，第三个是添加什么值
+                this.$set(this.school, 'id', '1001')
+                // 第二种写法
+                // Vue.set(this.school, 'id', '1001')
+
+                // 修改数组里的值
+                this.school.hobby.splice(this.school.hobby,1,'学习')
+            }
+        }
+    })
+</script>
+</body>
+</html>

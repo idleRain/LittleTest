@@ -33,8 +33,15 @@
                 // this.persons[0].age = '99'               //这种写法奏效
                 // this.persons[0].sex = '女'               //这种写法奏效
 
+                // this.persons[0] = {id: '001', name: '玛玛哈哈', sex: '女', age: '99'}     //不奏效
                 // 这种写法数据已经发生改变了，但 Vue 没有监测到，页面不会有任何变化
-                this.persons[0] = {id: '001', name: '玛玛哈哈', sex: '女', age: '99'}
+                // 直接按下标修改被 Vue 管理的数组， 不会被 Vue 监测到
+
+                this.persons.splice(0, 1, {id: '001', name: '玛玛哈哈', sex: '女', age: '99'})   //奏效
+                // 被 Vue 对象管理的数组属性的数组方法(push(),pop(),shift()等)被包装（重写）过
+
+                console.log(this.persons.push() === Array.prototype.push())
+                //对比 Vue 提供的 push() 和 Array 原型对象的 push() ，输出为 false
             }
         }
     })
