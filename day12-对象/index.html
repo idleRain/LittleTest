@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="box w" id="app">
+    <div class="box-bd">
+        <ul>
+            <li v-for="(h,index) in haha" :key="index">
+                <a href="#">
+                    <img :src="h.src" alt="">
+                    <h4>{{h.title}}</h4>
+                    <div class="info">
+                        <span>高级 · </span><span>{{h.num}}人在学习</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<script src="../VueDemo/js/vue.js"></script>
+<script>
+    Vue.config.productionTip = false
+    new Vue({
+        el: '#app',
+        data: {
+            haha: [
+                {src: 'images/course01.png', title: 'Think PHP 5.0 博客系统实战项目演练', num: 1125},
+                {src: 'images/course02.png', title: 'Android 网络动态图片加载实战', num: 357},
+                {src: 'images/course03.png', title: 'Angular2 大前端商城实战项目演练', num: 22250},
+                {src: 'images/course04.png', title: 'Android APP 实战项目演练', num: 389},
+                {src: 'images/course05.png', title: 'U GUI 源码深度分析案例', num: 124},
+                {src: 'images/course06.png', title: 'Kami2首页界面切换效果实战演练', num: 432},
+                {src: 'images/course07.png', title: 'UNITY 从入门到精通实战案例', num: 888},
+                {src: 'images/course08.png', title: 'Cocos 深度学习你不会错过的实战', num: 590}
+            ]
+        }
+    })
+</script>
+</body>
+</html>
