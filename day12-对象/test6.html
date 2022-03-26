@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>随机删除角色</button>
+<h1></h1>
+<script>
+    let arr = ['赵云', '黄忠', '关羽', '张飞', '马超', '刘备', '曹操']
+    let h1 = document.querySelector('h1')
+    document.querySelector('button').addEventListener('click', function () {
+        let index = Math.floor(Math.random() * arr.length)
+        h1.innerHTML = arr[index] + arr.length
+        arr.splice(index,1)
+
+        if (!arr.length) {
+            h1.innerHTML = '删完了'
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = 5
+    ;(function f() {
+        let b = +prompt('输入一个数：')
+        if (b > a) {
+            alert('猜大了，重猜')
+            f()
+        } else if (b < a) {
+            alert('猜小了，重猜')
+            f()
+        } else {
+            alert('猜对了')
+        }
+    })()
+</script>
+</body>
+</html>
