@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+      4. 用户输入分数，根据分数奖励不同的车( 利用多分支语句 )
+       - 90~100分     奖励法拉利
+       - 80~90分      奖励奥迪
+       - 60~80分      奖励奥拓
+       - 60分以下      打一顿
+      */
+    ;(function fraction() {
+        let num = +prompt('输入你的分数')
+        if (num > 100 || num < 0 || isNaN(num)) {
+            alert('输入有误，重新输入')
+            fraction()
+        } else if (num >= 90) {
+            alert('奖励你一台法拉利')
+        } else if (num >= 80) {
+            alert('奖励你一辆奥迪')
+        } else if (num >= 60) {
+            alert('奖励你一辆奥拓')
+        } else {
+            alert('打一顿')
+        }
+    })()
+</script>
+</body>
+</html>

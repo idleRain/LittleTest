@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生成表格-丁云锋</title>
+    <style>
+        table {
+            width: 600px;
+            text-align: center;
+        }
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+        tr {
+            height: 40px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <th>姓名</th>
+        <th>js分数</th>
+        <th>webapi分数</th>
+        <th>期中考试分数</th>
+        <th>总分数</th>
+    </tr>
+    <script>
+        let data = [
+            {name: '小明', js: 88, webapi: 75, center: 90},
+            {name: '小红', js: 90, webapi: 88, center: 92},
+            {name: '大毛', js: 59, webapi: 76, center: 80},
+            {name: '阿美', js: 77, webapi: 66, center: 70},
+            {name: 'pink', js: 100, webapi: 100, center: 100},
+            {name: '丁云锋', js: 100, webapi: 100, center: 100}
+        ]
+        for (let i = 0; i < data.length; i++) {
+            document.write(`
+            <tr>
+                <td>${data[i].name}</td>
+                <td>${data[i].js}</td>
+                <td>${data[i].webapi}</td>
+                <td>${data[i].center}</td>
+                <td>${data[i].js + data[i].webapi + data[i].center}</td>
+            </tr>
+        `)
+        }
+    </script>
+</table>
+
+</body>
+</html>

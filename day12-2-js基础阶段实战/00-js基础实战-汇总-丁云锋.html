@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>JS基础-编程题-题目</title>
+</head>
+<body>
+<script>
+    /*
+      1. 增加年龄
+      描述
+       1. 提示用户输入年龄，用户输入年龄后，把用户输入的年龄增加 5 岁
+       2. 增加 5 岁后，通过弹出框提示用户 “ 据我估计，五年后，你可能 XX 岁了”
+      */
+    ;(() => {
+        let age = +prompt('输入年龄：') + 5
+        alert('据我估计，五年后，你可能 ' + age + ' 岁了')
+    })()
+
+    /*
+      2. 用户登录验证
+      描述
+      接收用户输入的用户名和密码，若用户名为 “admin” ,且密码为 “123456” ,则提示用户登录成功!  否则，让用户一直输入。
+      ps：使用while循环
+      */
+    ;(function userInfo() {
+        let userName = prompt('输入用户名')
+        let password = prompt('输入密码')
+        if (userName !== 'admin' && password !== '123456') {
+            alert('用户名或密码错误，重新输入')
+            userInfo()
+        } else {
+            alert('登录成功！')
+        }
+    })()
+
+    /*
+      3. 用户输入一个数，  计算 1 到这个数的和。
+       比如 用户输入的是 5， 则计算 1~5 之间的累加和 并且输出到控制台
+      */
+    ;(() => {
+        let max = +prompt('输入一个数')
+        let he = 0
+        for (let i = 1; i <= max; i++) {
+            he += i
+        }
+        console.log(he)
+    })()
+
+    /*
+      4. 用户输入分数，根据分数奖励不同的车( 利用多分支语句 )
+       - 90~100分     奖励法拉利
+       - 80~90分      奖励奥迪
+       - 60~80分      奖励奥拓
+       - 60分以下      打一顿
+      */
+    ;(function fraction() {
+        let num = +prompt('输入你的分数')
+        if (num > 100 || num < 0 || isNaN(num)) {
+            alert('输入有误，重新输入')
+            fraction()
+        } else if (num >= 90) {
+            alert('奖励你一台法拉利')
+        } else if (num >= 80) {
+            alert('奖励你一辆奥迪')
+        } else if (num >= 60) {
+            alert('奖励你一辆奥拓')
+        } else {
+            alert('打一顿')
+        }
+    })()
+
+    /*
+      5. 打印输出数组里所有的奇数  [5, 2, 8, 10, 3, 7]
+       let arrNums = [5, 2, 8, 10, 3, 7]
+      */
+    ;(() => {
+        let arrNums = [5, 2, 8, 10, 3, 7]
+        let newArr = []
+        for (let i = 0; i < arrNums.length; i++) {
+            if (arrNums[i] % 2 !== 0) {
+                newArr.push(arrNums[i])
+            }
+        }
+        console.log('奇数' + newArr)
+    })()
+
+    /*
+      6. 使用for循环 - 求出班级里同学们平均年龄 [15, 19, 21, 33, 18, 24, 10]
+       let arrAges = [15, 19, 21, 33, 18, 24, 10]
+      */
+    ;(() => {
+        let arrAges = [15, 19, 21, 33, 18, 24, 10]
+        let ages = 0
+        for (let i = 0; i < arrAges.length; i++) {
+            ages += arrAges[i]
+        }
+        console.log('平均年龄' + ages / arrAges.length)
+    })()
+
+    /*
+      7. 使用for循环 - 求出数组里大于5的和,  以及能被3整除的偶数的个数
+       let arrCount = [4, 9, 5, 3, 20, 6, 15, 11, 35]
+      */
+    ;(() => {
+        let arrCount = [4, 9, 5, 3, 20, 6, 15, 11, 35]
+        let newArr = arrCount.filter(function (num) {
+            return num > 5
+        })
+        let he = 0
+        for (let i = 0; i < newArr.length; i++) {
+            he += newArr[i]
+        }
+        let index = 0
+        for (let i = 0; i < arrCount.length; i++) {
+            if (arrCount[i] % 3 === 0 && arrCount[i] % 2 === 0) {
+                index++
+            }
+        }
+        console.log(he)     //和
+        console.log(index)  //个数
+    })()
+
+    /*
+      8. 给一个数字数组，该数组中有很多数字0，将不为0的数据存入到一个新的数组中
+       let arrAll = [4, 0, 9, 5, 0, 20, 3, 0, 11, 0 , 0, 10]
+      */
+    ;(() => {
+        let arrAll = [4, 0, 9, 5, 0, 20, 3, 0, 11, 0, 0, 10]
+        let newArr = []
+        for (let i = 0; i < arrAll.length; i++) {
+            if (arrAll[i] !== 0) {
+                newArr.push(arrAll[i])
+            }
+        }
+        console.log(newArr)
+    })()
+
+    /*
+      9. 封装余额函数
+       目的: 复习函数的声明与调用
+       要求:
+       1. 运行程序后, 浏览器显示输入确认框(prompt)
+       2. 第一个输入确认框提示输入银行卡余额
+       3. 第二个输入确认框提示输入当月食宿消费金额
+       4. 第三个输入确认框提示输入当月生活消费金额
+       5. 输入完毕后,在页面中显示银行卡剩余金额
+       6. 提示: 所有功能代码封装在函数内部（函数需要把余额返回）
+      */
+    function live() {
+        let balance = +prompt('输入银行卡余额')
+        let food = +prompt('输入当月食宿消费金额')
+        let consumption = +prompt('输入当月生活消费金额')
+        let surplus = balance - food - consumption
+        alert('银行卡剩余金额' + surplus)
+        return surplus
+    }
+
+    let money = live()
+    console.log(money)
+    /*
+      10. 对象的使用
+      要求:
+      1. 对象名为 computer  电脑对象
+      2. 有size属性, 值为 15.6 寸
+      3. 有brand属性，值为 华为
+      4. 有playGame方法，值为函数，函数内打印 吃鸡
+      5. 有code方法，值为函数，函数内打印 写代码使我快乐
+      6. 页面中输出电脑对象的size 和 brand属性的值
+      7. 调用对象中的playGame 和 code的方法
+      */
+    let computer = {
+        size: '15.6寸',
+        brand: '华为',
+        playGame() {
+            console.log('吃鸡')
+        },
+        code() {
+            console.log('写代码使我快乐')
+        }
+    }
+    console.log(computer.size, computer.brand)
+    computer.playGame()
+    computer.code()
+
+    /*
+      11. 计算m-n之间所有数的和
+        需要有函数的使用
+      */
+    function fn(n, m) {
+        let num = 0
+        for (n; n <= m; n++) {
+            num += n
+        }
+        return num
+    }
+
+    console.log(fn(5, 10))
+
+    /*
+      12. 猜数字游戏，设定次数，最多猜5次
+      要求
+      1. 生成随机的数字0到20
+      2. 只能猜5次，5次机会用完提示 `这都猜不到`
+      3. 猜对了，就提示 恭喜猜对拉
+      4. 猜小了，您猜的数字小了
+      5. 猜大了，就提示用户 您猜的数字大了
+      */
+    ;(() => {
+        let random = Math.floor(Math.random() * 21)
+        for (let i = 0; i < 5; i++) {
+            let num = +prompt('猜数字')
+            if (num > random) {
+                alert('您猜的数字大了')
+            } else if (num < random) {
+                alert('您猜的数字小了')
+            } else {
+                alert('恭喜猜对拉')
+                return
+            }
+        }
+        alert('这都猜不到')
+    })()
+
+    /*
+      13. 小娜
+      需求: 只要用户输入的不是相关选项, 则一直存在弹出输入提示框, 等待用户的输入
+      思路:
+        - while() 循环
+        - 弹出输入框
+      */
+    ;(() => {
+        while (true) {
+            let str = prompt()
+            if (str === '小娜') {
+                break
+            }
+        }
+    })()
+
+    /*
+      14. 实现数组里求最大值的函数
+      let arrayNums = [4, 9, 5, 3, 20, 6, 15, 11]
+      */
+    ;(() => {
+        let arrayNums = [4, 9, 5, 3, 20, 6, 15, 11]
+        let newArr = arrayNums.sort(function (a, b) {
+            return b - a
+        })
+        console.log(newArr[0])
+    })()
+
+    /*
+      15. 操作数组对象
+      需求1: 遍历数组里每个对象, 判断出哪个人最大 - 打印它的名字
+      需求2: 遍历数组里每个对象, 为每个人增加5岁的年龄, 最后打印整个数组在控制台查看
+      let arrPers = [
+            {name: '小明', age: 18, sex: '男',},
+            {name: '老刘', age: 38, sex: '男',},
+            {name: '小王', age: 19, sex: '女',}
+        ]
+      */
+    ;(() => {
+        let arrPers = [
+            {name: '小明', age: 18, sex: '男',},
+            {name: '老刘', age: 38, sex: '男',},
+            {name: '小王', age: 19, sex: '女',}
+        ]
+        let maxAge = arrPers[0].age
+        for (let i = 0; i < arrPers.length; i++) {
+            if (maxAge < arrPers[i].age) {
+                maxAge = arrPers[i].age
+            }
+        }
+        for (let j = 0; j < arrPers.length; j++) {
+            if (arrPers[j].age === maxAge) {
+                console.log('最大年龄的人：' + arrPers[j].name)
+            }
+        }
+        arrPers.forEach(function (k){
+            k.age += 5
+            return 0
+        })
+        console.log(arrPers)
+    })()
+</script>
+</body>
+</html>

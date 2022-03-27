@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+      7. 使用for循环 - 求出数组里大于5的和,  以及能被3整除的偶数的个数
+       let arrCount = [4, 9, 5, 3, 20, 6, 15, 11, 35]
+      */
+        let arrCount = [4, 9, 5, 3, 20, 6, 15, 11, 35]
+        let newArr = arrCount.filter(function (num) {
+            return num > 5
+        })
+        let he = 0
+        for (let i = 0; i < newArr.length; i++) {
+            he += newArr[i]
+        }
+        let index = 0
+        for (let i = 0; i < arrCount.length; i++) {
+            if (arrCount[i] % 3 === 0 && arrCount[i] % 2 === 0) {
+                index++
+            }
+        }
+        console.log(he)     //和
+        console.log(index)  //个数
+</script>
+</body>
+</html>

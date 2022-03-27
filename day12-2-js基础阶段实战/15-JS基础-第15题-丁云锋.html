@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+  15. 操作数组对象
+  需求1: 遍历数组里每个对象, 判断出哪个人最大 - 打印它的名字
+  需求2: 遍历数组里每个对象, 为每个人增加5岁的年龄, 最后打印整个数组在控制台查看
+  let arrPers = [
+        {name: '小明', age: 18, sex: '男',},
+        {name: '老刘', age: 38, sex: '男',},
+        {name: '小王', age: 19, sex: '女',}
+    ]
+  */
+        let arrPers = [
+            {name: '小明', age: 18, sex: '男',},
+            {name: '老刘', age: 38, sex: '男',},
+            {name: '小王', age: 19, sex: '女',}
+        ]
+        let maxAge = arrPers[0].age
+        for (let i = 0; i < arrPers.length; i++) {
+            if (maxAge < arrPers[i].age) {
+                maxAge = arrPers[i].age
+            }
+        }
+        for (let j = 0; j < arrPers.length; j++) {
+            if (arrPers[j].age === maxAge) {
+                console.log('最大年龄的人：' + arrPers[j].name)
+            }
+        }
+        arrPers.forEach(function (k){
+            k.age += 5
+            return 0
+        })
+        console.log(arrPers)
+</script>
+</body>
+</html>

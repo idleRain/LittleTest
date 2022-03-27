@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+        10. 对象的使用
+        要求:
+        1. 对象名为 computer  电脑对象
+        2. 有size属性, 值为 15.6 寸
+        3. 有brand属性，值为 华为
+        4. 有playGame方法，值为函数，函数内打印 吃鸡
+        5. 有code方法，值为函数，函数内打印 写代码使我快乐
+        6. 页面中输出电脑对象的size 和 brand属性的值
+        7. 调用对象中的playGame 和 code的方法
+        */
+    let computer = {
+        size: '15.6寸',
+        brand: '华为',
+        playGame() {
+            console.log('吃鸡')
+        },
+        code() {
+            console.log('写代码使我快乐')
+        }
+    }
+    console.log(computer.size, computer.brand)
+    computer.playGame()
+    computer.code()
+</script>
+</body>
+</html>

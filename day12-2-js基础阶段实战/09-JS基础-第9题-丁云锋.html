@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+          9. 封装余额函数
+           目的: 复习函数的声明与调用
+           要求:
+           1. 运行程序后, 浏览器显示输入确认框(prompt)
+           2. 第一个输入确认框提示输入银行卡余额
+           3. 第二个输入确认框提示输入当月食宿消费金额
+           4. 第三个输入确认框提示输入当月生活消费金额
+           5. 输入完毕后,在页面中显示银行卡剩余金额
+           6. 提示: 所有功能代码封装在函数内部（函数需要把余额返回）
+          */
+    function live() {
+        let balance = +prompt('输入银行卡余额')
+        let food = +prompt('输入当月食宿消费金额')
+        let consumption = +prompt('输入当月生活消费金额')
+        let surplus = balance - food - consumption
+        alert('银行卡剩余金额' + surplus)
+        return surplus
+    }
+
+    let money = live()
+    console.log(money)
+</script>
+</body>
+</html>

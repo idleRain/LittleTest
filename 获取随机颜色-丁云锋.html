@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取随机颜色-丁云锋</title>
+</head>
+<body>
+<script>
+    function getColor(flag) {
+        if (flag) {
+            let colorArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f']
+            let randomColor = '#'
+            for (let i = 0; i < 6; i++) {
+                randomColor += colorArr[Math.floor(Math.random() * colorArr.length)]
+            }
+            return randomColor
+        } else {
+            let r = Math.floor(Math.random() * 256)
+            let g = Math.floor(Math.random() * 256)
+            let b = Math.floor(Math.random() * 256)
+            return `rgb(${r},${g},${b})`
+        }
+    }
+
+    console.log(getColor(true))
+    console.log(getColor(false))
+</script>
+</body>
+</html>

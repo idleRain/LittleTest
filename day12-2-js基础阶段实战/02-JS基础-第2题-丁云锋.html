@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+      2. 用户登录验证
+      描述
+      接收用户输入的用户名和密码，若用户名为 “admin” ,且密码为 “123456” ,则提示用户登录成功!  否则，让用户一直输入。
+      ps：使用while循环
+      */
+    ;(function userInfo() {
+        let userName = prompt('输入用户名')
+        let password = prompt('输入密码')
+        if (userName !== 'admin' && password !== '123456') {
+            alert('用户名或密码错误，重新输入')
+            userInfo()
+        } else {
+            alert('登录成功！')
+        }
+    })()
+</script>
+</body>
+</html>

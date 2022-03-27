@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取最大值和最小值-丁云锋</title>
+</head>
+<body>
+<script>
+    function getArrLimit(arr, flag) {
+        arr.sort(function (a, b) {
+            return b - a
+        })
+        if (flag) {
+            return arr[0]
+        } else {
+            return arr[arr.length - 1]
+        }
+    }
+
+    //true返回最大值，false或不传第二个实参返回最小值
+    console.log(getArrLimit([100, 20, 60, 88, 90], true))
+    console.log(getArrLimit([100, 20, 60, 88, 90]))
+</script>
+</body>
+</html>
