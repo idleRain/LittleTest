@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="images/1.webp" alt="" width="500">
+<script>
+    const arr = [
+        'images/1.webp',
+        'images/2.webp',
+        'images/3.webp',
+        'images/4.webp',
+        'images/5.webp',
+        'images/6.webp'
+    ]
+    let index = 0
+    setInterval(() => {
+        index++
+        index === arr.length ? index = 0 : index
+        document.querySelector('img').src = arr[index]
+    }, 1200)
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改背景图片</title>
+    <style>
+        body{
+            background: url("images/desktop_1.jpg") no-repeat;
+            background-size: 100%;
+            transition: all .4s;
+        }
+    </style>
+</head>
+<body>
+<script>
+    let index = 1
+    setInterval(() => {
+        index++
+        index > 10 ? index = 1 : index
+        document.body.style.backgroundImage = `url('images/desktop_${index}.jpg')`
+    }, 2000)
+</script>
+</body>
+</html>
