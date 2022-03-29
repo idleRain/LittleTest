@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手风琴</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        ul {
+            display: flex;
+            margin: 100px auto;
+            width: 1200px;
+            overflow: hidden;
+            justify-items: center;
+            border: 1px solid red;
+        }
+
+        li {
+            list-style: none;
+            height: 400px;
+            width: 240px;
+            background: pink;
+            transition: all .5s;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><img src="" alt=""></li>
+        <li><img src="" alt=""></li>
+        <li><img src="" alt=""></li>
+        <li><img src="" alt=""></li>
+        <li><img src="" alt=""></li>
+    </ul>
+<script>
+    const lis = document.querySelectorAll('li')
+    const img = document.querySelectorAll('img')
+    for (let i = 0; i < lis.length; i++) {
+        img[i].src = `images/${i + 1}.jpg`
+        // 鼠标移入每个 li 元素
+        lis[i].addEventListener('mouseenter', function () {
+            for (let j = 0; j < lis.length; j++) {
+                lis[j].style.width = '100px'
+            }
+            this.style.width = '800px'
+        })
+        // 鼠标移出每个 li 元素
+        lis[i].addEventListener('mouseleave', function () {
+            for (let j = 0; j < lis.length; j++) {
+                lis[j].style.width = '240px'
+            }
+        })
+    }
+</script>
+</body>
+</html>

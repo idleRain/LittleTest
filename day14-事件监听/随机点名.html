@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .box {
+            width: 600px;
+            margin: 50px auto;
+            display: flex;
+            font-size: 25px;
+            line-height: 40px;
+        }
+
+        .qs {
+
+            width: 450px;
+            height: 40px;
+            color: red;
+
+        }
+
+        .btns {
+            text-align: center;
+        }
+
+        .btns button {
+            width: 120px;
+            height: 35px;
+            margin: 0 50px;
+        }
+    </style>
+</head>
+<body>
+<h2>随机点名</h2>
+<div class="box">
+    <span>名字是：</span>
+    <div class="qs">这里显示姓名</div>
+</div>
+<div class="btns">
+    <button class="start">开始</button>
+    <button class="end">结束</button>
+</div>
+<script>
+    const arr = ['小丁', '小李', '小何', '小姜', '小刘', '小赵', '小张']
+    const qs = document.querySelector('.qs')
+    const start = document.querySelector('.start')
+    const end = document.querySelector('.end')
+    let timer = 0
+    let random = arr[0]
+    // 开始模块
+    start.addEventListener('click', () => {
+        if (arr.length === 1) {
+            qs.innerHTML = arr[0]
+            start.disabled = true
+            end.disabled = true
+            return
+        }
+        timer = setInterval(() => {
+            random = Math.floor(Math.random() * arr.length)
+            qs.innerHTML = arr[random]
+        }, 50)
+        // console.log(timer)
+    })
+    // 结束模块
+    end.addEventListener('click', () => {
+        clearInterval(timer)
+        arr.splice(random, 1)
+        console.log(arr)
+    })
+</script>
+</body>
+</html>
