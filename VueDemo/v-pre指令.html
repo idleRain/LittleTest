@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--    v-pre 指令会跳过当前绑定节点   -->
+    <!--    可以利用它跳过没有绑定指令语法、没有使用插值语法的节点，会加快编译   -->
+    <h2 v-pre>n的初始值是：{{n}}</h2>
+    <h2 v-pre>n的当前值是：{{n}}</h2>
+    <button v-pre @click="n++">点我n+1</button>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            n: 1
+        }
+    })
+</script>
+</body>
+</html>
