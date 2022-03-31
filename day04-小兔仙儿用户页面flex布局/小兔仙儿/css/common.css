@@ -7,6 +7,8 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 html {
+    /*让滚动条丝滑的滚动*/
+    scroll-behavior: smooth;
     line-height: 1.15;
     /* 1 */
     -webkit-text-size-adjust: 100%;
