@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <ul>
+        <li>第1个</li>
+        <li>第2个</li>
+        <li>第3个</li>
+        <li>第4个</li>
+        <li>第5个</li>
+    </ul>
+    <p>我不要</p>
+</div>
+<script>
+    //事件委托给父元素，减少绑定事件次数 ， 提高代码编译速度
+    const div = document.querySelector('div')
+    div.addEventListener('click', function (e) {
+        //e.target 就是当前点击的对象
+        //e.targetName 是当前点击对象的名字 ， 都是大写字符串
+        if (e.target.tagName === 'LI') {
+            e.target.style.color = 'red'
+        }
+        console.log(e.target)
+    })
+</script>
+</body>
+</html>

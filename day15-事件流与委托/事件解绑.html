@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>
+    点我点我
+</button>
+<script>
+    // !!! 匿名函数无法被移除
+    const btn = document.querySelector('button')
+    function click(){
+        console.log('点击了')
+    }
+    btn.addEventListener('click',click)
+    // 移除绑定事件
+    btn.removeEventListener('click',click)
+</script>
+</body>
+</html>

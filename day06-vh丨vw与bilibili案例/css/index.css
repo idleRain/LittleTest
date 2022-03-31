@@ -81,6 +81,7 @@ ul {
   border-bottom: 0.13333333vw solid #e7e7e7;
 }
 .suspension .channel-menu .tabs {
+  position: relative;
   flex: 1;
   height: 10.66666667vw;
   overflow: hidden;
@@ -96,17 +97,16 @@ ul {
   color: #505050;
 }
 .suspension .channel-menu .tabs .tabs-item a.active {
-  position: relative;
   color: #fb7299;
 }
-.suspension .channel-menu .tabs .tabs-item a.active::after {
-  content: '';
+.suspension .channel-menu .tabs .line {
   position: absolute;
   left: 0;
+  transition: all 0.4s;
   bottom: -0.26666667vw;
   transform: translateX(55%);
   height: 0.53333333vw;
-  width: 2em;
+  width: 7.46666667vw;
   background: #fb7299;
 }
 .suspension .channel-menu .header-after {

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .father{
+            width: 500px;
+            height: 500px;
+            background: pink;
+        }
+        .son{
+            width: 200px;
+            height: 200px;
+            background: skyblue;
+        }
+    </style>
+</head>
+<body>
+<div class="father">
+    <div class="son"></div>
+</div>
+<script>
+    // addEventListener 第一个参数: 事件类型 ， 第二个参数: 事件回调函数，第三个参数： 是否捕获，默认值是 false(冒泡)
+    document.addEventListener('click',function () {
+        alert('我是爷爷')
+    })
+    document.querySelector('.father').addEventListener('click',function (e){
+        alert('我是爸爸')
+        e.stopPropagation()
+    })
+    document.querySelector('.son').addEventListener('click',function (e) {
+        alert('我是儿子')
+        //阻止事件流动传播 (阻止冒泡)
+        e.stopPropagation()
+    })
+</script>
+</body>
+</html>

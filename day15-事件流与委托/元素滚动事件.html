@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            height: 3000px;
+            padding-top: 500px;
+        }
+        div{
+            display: none;
+            width: 200px;
+            height: 200px;
+            overflow: scroll;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <p>hahahaha</p>
+    <p>hahahaha</p>
+    <p>hahahaha</p>
+    <p>hahahaha</p>
+    <p>hahahaha</p>
+    <p>hahahaha</p>
+    <p>hahahaha</p>
+    <p>hahahaha</p>
+    <p>hahahaha</p>
+    <p>hahahaha</p>
+    <p>hahahaha</p>
+</div>
+<script>
+    const div = document.querySelector('div')
+    window.addEventListener('scroll', function () {
+        console.log(document.documentElement.scrollTop)
+        if (document.documentElement.scrollTop >= 100){
+            div.style.display = 'block'
+        }else {
+            div.style.display = 'none'
+        }
+    })
+    div.addEventListener('scroll',function (){
+        console.log(div.scrollTop)
+    })
+</script>
+</body>
+</html>

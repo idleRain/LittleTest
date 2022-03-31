@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="https://www.baidu.com">点我点我</a>
+<p></p>
+<script>
+    const a = document.querySelector('a')
+    a.addEventListener('click', function (e) {
+        document.querySelector('p').innerText = '我被阻止了'
+        e.preventDefault()
+    })
+</script>
+</body>
+</html>

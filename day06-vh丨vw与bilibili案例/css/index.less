@@ -66,6 +66,7 @@
     border-bottom: (0.5 / @baseSize) solid #e7e7e7;
 
     .tabs {
+      position: relative;
       flex: 1;
       height: (40 / @baseSize);
       overflow: hidden;
@@ -81,21 +82,19 @@
           color: #505050;
 
           &.active {
-            position: relative;
             color: #fb7299;
-
-            &::after {
-              content: '';
-              position: absolute;
-              left: 0;
-              bottom: -(1 / @baseSize);
-              transform: translateX(55%);
-              height: (2 / @baseSize);
-              width: 2em;
-              background: #fb7299;
-            }
           }
         }
+      }
+      .line{
+        position: absolute;
+        left: 0;
+        transition: all .4s;
+        bottom: -(1 / @baseSize);
+        transform: translateX(55%);
+        height: (2 / @baseSize);
+        width: (28 / @baseSize);
+        background: #fb7299;
       }
 
     }
