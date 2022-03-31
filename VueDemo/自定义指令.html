@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -12,6 +12,8 @@
     <h2>当前n的值是：<span v-text="n"></span></h2>
     <h2>放大后n的值是：<span v-big="n"></span></h2>
     <button @click="n++">点我n+1</button>
+    <hr>
+    <input type="text" v-fbind:value="m">
 </div>
 <script>
     new Vue({
@@ -25,6 +27,18 @@
             big(element,binding){   //第一个参数：当前绑定的 真实DOM 元素
                 console.log(element,binding)
                 element.innerText = binding.value * 10
+            },
+            //完整写法
+            fbind:{
+                // 指令与元素成功绑定时（初次）执行 bind() 函数
+                bind(){
+                },
+                // 指令所在元素被插入页面时
+                inserted(){
+                },
+                //指令所在的模板被重新解析时 执行 update() 函数
+                update(){
+                }
             }
         }
     })
