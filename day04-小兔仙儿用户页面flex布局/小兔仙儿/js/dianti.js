@@ -14,10 +14,11 @@ backTop.addEventListener('click', function () {
 })
 // const news = document.querySelector('.recommend').offsetTop
 
+// 点击跳转对应模块
 elevator.addEventListener('click', function (e) {
     if (e.target.dataset.name) {
         //获取选中状态，如果没有则返回 null
-        const old = document.querySelector('.xtx-elevator-list .active')
+        // const old = document.querySelector('.xtx-elevator-list .active')
         // if (old) old.classList.remove('active')
         // e.target.classList.add('active')
         // console.log(e.target.dataset.name)
@@ -25,6 +26,7 @@ elevator.addEventListener('click', function (e) {
         document.documentElement.scrollTop = document.querySelector(`.${e.target.dataset.name}`).offsetTop + 1
     }
 })
+//页面滚动对应位置 ， 固定栏 为选中状态
 window.addEventListener('scroll', function (e) {
     const old = document.querySelector('.xtx-elevator-list .active')
     if (old) old.classList.remove('active')
