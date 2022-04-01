@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>hahahaha</li>
+    <li>hahahaha</li>
+    <li>hahahaha</li>
+    <li>hahahaha</li>
+    <li>hahahaha</li>
+</ul>
+<script>
+    let timerId = setInterval(removeElement, 2000)
+
+    function removeElement() {
+    const ul = document.querySelector('ul')
+        if (ul.children[0]) {
+            ul.removeChild(ul.children[0])
+        } else {
+            clearInterval(timerId)
+        }
+    }
+    // console.log(ul.cloneNode())
+</script>
+</body>
+</html>

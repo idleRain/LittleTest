@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>学生信息管理</title>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+
+<body>
+<div id="app">
+    <h1>新增学员</h1>
+    <form class="info" autocomplete="off" @submit="add">
+        姓名：<input type="text" class="uname" name="uname" v-model.trim="temporary.uname"/>
+        年龄：<input type="text" class="age" name="age" v-model="temporary.age"/>
+        性别:
+        <select name="gender" class="gender" v-model="temporary.gender">
+            <option value="男">男</option>
+            <option value="女">女</option>
+        </select>
+        薪资：<input type="text" class="salary" name="salary" v-model="temporary.salary"/>
+        就业城市：<select name="city" class="city" v-model="temporary.city">
+        <option value="北京">北京</option>
+        <option value="上海">上海</option>
+        <option value="广州">广州</option>
+        <option value="深圳">深圳</option>
+        <option value="曹县">曹县</option>
+    </select>
+        <button class="add">录入</button>
+    </form>
+
+    <h1>就业榜</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>薪资</th>
+            <th>就业城市</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="(k,index) in students" :key="index">
+            <td>{{k.id}}</td>
+            <td>{{k.uname}}</td>
+            <td>{{k.age}}</td>
+            <td>{{k.gender}}</td>
+            <td>{{k.salary}}</td>
+            <td>{{k.city}}</td>
+            <td>
+                <a href="javascript:void(0)" @click="remove(index)">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="../VueDemo/js/vue.js"></script>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            temporary: {},
+            students: [],
+            id: 1
+        },
+        methods: {
+            add(e) {
+                const t = this.temporary
+                if (t.uname && t.age && t.gender && t.salary && t.city) {
+                    this.students.push({
+                        id: '00' + (this.id++),
+                        // id: this.id++ ,
+                        uname: t.uname,
+                        age: t.age,
+                        gender: t.gender,
+                        salary: t.salary,
+                        city: t.city
+                    })
+                    this.temporary = {}
+                } else {
+                    alert('信息输入不全，请重新输入！')
+                }
+                e.preventDefault()
+            },
+            remove(index) {
+                this.students.splice(index, 1)
+            }
+        }
+    })
+</script>
+</body>
+
+</html>

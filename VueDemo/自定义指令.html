@@ -11,9 +11,11 @@
 <div id="app">
     <h2>当前n的值是：<span v-text="n"></span></h2>
     <h2>放大后n的值是：<span v-big="n"></span></h2>
+<!--    自定义指令多个单词拼接不推荐用 驼峰命名法 会报错-->
+    <h2>放大后n的值是：<span v-big-number="n"></span></h2>
     <button @click="n++">点我n+1</button>
     <hr>
-    <input type="text" v-fbind:value="m">
+    <input type="text" v-fbind:value="n">
 </div>
 <script>
     new Vue({
@@ -28,16 +30,27 @@
                 console.log(element,binding)
                 element.innerText = binding.value * 10
             },
+            //多个单词拼接写法
+            'big-number'(element,binding){
+                console.log(element,binding)
+                element.innerText = binding.value * 10
+            },
             //完整写法
             fbind:{
                 // 指令与元素成功绑定时（初次）执行 bind() 函数
-                bind(){
+                bind(element,binding){
+                    element.value = binding.value
                 },
                 // 指令所在元素被插入页面时
-                inserted(){
+                inserted(element,binding){
+                    // input 被插入页面时获取焦点
+                    element.focus()
                 },
                 //指令所在的模板被重新解析时 执行 update() 函数
-                update(){
+                update(element,binding){
+                    element.value = binding.value
+                    //数据发生改变 input 重新获取焦点
+                    // element.focus()
                 }
             }
         }

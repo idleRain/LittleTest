@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>haha</li>
+</ul>
+<script>
+    const ul = document.querySelector('ul')
+    // 创建元素节点
+    const li = document.createElement('li')
+    li.innerText = 'ohhhhhhhhhhhh'
+    // 追加元素节点,在父元素的最后
+    ul.appendChild(li)
+    // 插入节点  父元素.insertBefore(要插入的元素，插入的地方(在其之前))
+    ul.insertBefore(li, ul.children[0])
+</script>
+</body>
+</html>
