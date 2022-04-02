@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="root">
+    <h1>{{msg}}</h1>
+    <hr>
+    <!--    第三步：编写组件化标签-->
+    <school></school>
+    <hr>
+    <student></student>
+    <hr>
+    <hello></hello>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    Vue.config.productionTip = false
+
+    // 第一步： 创建 school 组件
+    const school = Vue.extend({
+        template: `
+          <div>
+          <h2>{{ schoolName }}</h2>
+          <h2>{{ schoolDizhi }}</h2>
+          </div>
+        `,
+        data() {
+            return {
+                schoolName: '黑马程序员',
+                schoolDizhi: '武汉黄陂'
+            }
+        }
+    })
+    const student = Vue.extend({
+        template: `
+          <div>
+          <h3>{{ studentName }}</h3>
+          <h3>{{ studentAge }}</h3>
+          </div>
+        `,
+        data() {
+            return {
+                studentName: '小丁',
+                studentAge: 18
+            }
+        }
+    })
+    const hello = Vue.extend({
+        template: `
+            <h2>{{msg}}</h2>
+        `,
+        data() {
+            return {
+                msg:'Hello , 丁同学'
+            }
+        }
+    })
+    //创建全局 Vue 组件
+    Vue.component('hello',hello)        //第一个参数：叫什么名字，第二个参数：在哪里
+
+    new Vue({
+        el: '#root',
+        // 第二步： 注册组件（局部注册）
+        components: {
+            // key : value  key与value相同时可以简写
+            // school:school
+            school,
+            student
+        },
+        data: {
+            msg: '你好呀'
+        }
+    })
+</script>
+</body>
+</html>

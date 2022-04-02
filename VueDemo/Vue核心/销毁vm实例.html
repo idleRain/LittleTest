@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>当前n的值是：{{n}}</h2>
+    <button @click="n++">点我n加一</button>
+    <button @click="bey">点我销毁vm实例</button>
+    <button @click="log">点我啥用没有</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            n: 0
+        },
+        methods: {
+            bey(){
+                console.log('bey~bey~~~')
+                //销毁 vm 实例
+                this.$destroy()
+            },
+            log(){
+                console.log('vm 被销毁了，但我还能被调用')
+            }
+        },
+        //数据更新前调用
+        beforeUpdate(){
+            console.log('beforeUpdate')
+        },
+        //数据更新后调用
+        updated(){
+            console.log('update')
+        },
+        //在销毁前调用，可以访问数据，调用方法，但不会再修改数据
+        beforeDestroy(){
+            console.log(beforeDestroy)
+        },
+        destroyed(){
+
+        }
+    })
+</script>
+</body>
+</html>
