@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--    <h2 :style="{ opacity:opacity }"></h2>-->
+    <!--    对象名 与 key 名 相同时可以简写-->
+    <h2 :style="{ opacity:opacity }">{{hi}}</h2>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            hi: '你好呀！',
+            opacity: 1
+        },
+        //生命周期，又名生命周期回调函数、生命周期回调函数、生命周期狗子
+        //在关键的时间点 Vue 会调用关键的函数
+
+        //在 Vue 完成模板的解析并把 初始的 真实 DOM 元素放入页面后（挂载完毕）调用 mounted()函数
+        mounted() {
+            console.log(this)       //生命周期函数的 this 指向是 Vue 实例本身
+            setInterval(() => {     //不被 Vue 管理的函数要写成箭头函数
+                this.opacity -= 0.01
+                if (this.opacity <= 0) this.opacity = 1
+            },16)
+        }
+    })
+</script>
+</body>
+</html>

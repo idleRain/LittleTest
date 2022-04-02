@@ -18,6 +18,18 @@
     <input type="text" v-fbind:value="n">
 </div>
 <script>
+    //创建一个全局 Vue 自定义指令  (函数名，函数体)
+    Vue.directive('haha',{
+        bind(element,binding){
+            element.value = binding.value
+        },
+        inserted(element,binding){
+            element.focus()
+        },
+        update(element,binding){
+            element.value = binding.value
+        }
+    })
     new Vue({
         el:'#app',
         data:{
@@ -26,16 +38,16 @@
         directives:{
             //函数写法，适合简单实现，很难/无法 实现一些细节
             // 被调用方式：1.指令与元素成功绑定时（初次）,2.指令所在的模板被重新解析时
-            big(element,binding){   //第一个参数：当前绑定的 真实DOM 元素
+            big(element,binding){   //第一个参数：当前绑定的 真实DOM 元素 ， 第二个参数：指令绑定的值
                 console.log(element,binding)
                 element.innerText = binding.value * 10
             },
             //多个单词拼接写法
             'big-number'(element,binding){
-                console.log(element,binding)
+                console.log('bind',this)    //  !!! 注意：所有指令对象里的函数的 this 指向的都是 window !!!
                 element.innerText = binding.value * 10
             },
-            //完整写法
+            //完整写法,默认函数名不能改
             fbind:{
                 // 指令与元素成功绑定时（初次）执行 bind() 函数
                 bind(element,binding){
