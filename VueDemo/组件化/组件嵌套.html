@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="../js/vue.js"></script>
+<script>
+    Vue.config.productionTip = false
+    // 创建 school 的子组件 student
+    const student = Vue.extend({
+        template: `
+          <div>
+          <h2>{{ name }}</h2>
+          <h2>{{ age }}</h2>
+          </div>
+        `,
+        data() {
+            return {
+                name: '小丁',
+                age: 18
+            }
+        }
+    })
+    // 创建 app 的子组件 school
+    const school = Vue.extend({
+        // 子组件应当挂载到父组件上
+        components: {
+            student
+        },
+        template: `
+          <div>
+          <h2>{{ name }}</h2>
+          <h2>{{ address }}</h2>
+          <student></student>
+          </div>
+        `,
+        data() {
+            return {
+                name: '武汉黑马',
+                address: '武汉黄陂'
+            }
+        }
+    })
+
+    const hello = Vue.extend({
+        template: `
+          <h1>{{ msg }}</h1>
+        `,
+        data() {
+            return {
+                msg: 'hello啊，树哥'
+            }
+        }
+    })
+
+    // 创建 vm 的子组件 app
+    const app = Vue.extend({
+        name:'app',
+        // 子组件应当挂载到父组件上
+        components: {
+            hello,
+            school
+        },
+        template: `
+          <div>
+          <hello></hello>
+          <school></school>
+          </div>
+        `
+    })
+    new Vue({
+        el: '#root',
+        components: {
+            app
+        },
+        template: `
+          <app></app>
+        `
+    })
+</script>
+</body>
+</html>

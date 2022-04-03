@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -67,9 +66,9 @@
     const vm = new Vue({
         el: '#app',
         data: {
-            temporary: {},      // 暂存学生数据
+            temporary: {gender: '女', city: '北京'},      // 暂存学生数据
             students: [],       // 学生数据
-            id: 1001               // 学生 id
+            id: 1001            // 学生 id
         },
         methods: {
             // 添加
@@ -88,7 +87,7 @@
                     // 添加成功设置本地存储
                     localStorage.setItem('student-data', JSON.stringify(this.students))
                     // 清空暂存数据的对象属性
-                    this.temporary = {}
+                    this.temporary = {gender: '女', city: '北京'}
                 } else {
                     alert('信息输入不全，请重新输入！')
                 }
@@ -108,12 +107,12 @@
             let newData = localStorage.getItem('student-data')
             newData = newData ? JSON.parse(newData) : []
             // 遍历本地存储的数据并返回给 students 学生数据对象
-            this.students = newData.map(function (item, index) {
+            this.students = newData.map(function (item) {
                 return item
             })
             // 重置 id
             this.id = this.students[this.students.length - 1].id + 1
-            console.log(this.students)
+            // console.log(this.students)
         }
     })
 </script>
