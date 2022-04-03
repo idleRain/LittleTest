@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            width: 200px;
+            height: 100px;
+            font-size: 20px;
+            background: pink;
+            font-weight: 700;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div>广告</div>
+<script>
+    const div = document.querySelector('div')
+    setTimeout(() => {
+        div.style.display = 'none'
+    }, 5000)
+</script>
+</body>
+</html>

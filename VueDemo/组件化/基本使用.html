@@ -50,16 +50,16 @@
     })
     const hello = Vue.extend({
         template: `
-            <h2>{{msg}}</h2>
+          <h2>{{ msg }}</h2>
         `,
         data() {
             return {
-                msg:'Hello , 丁同学'
+                msg: 'Hello , 丁同学'
             }
         }
     })
     //创建全局 Vue 组件
-    Vue.component('hello',hello)        //第一个参数：叫什么名字，第二个参数：在哪里
+    Vue.component('hello', hello)        //第一个参数：叫什么名字，第二个参数：在哪里
 
     new Vue({
         el: '#root',

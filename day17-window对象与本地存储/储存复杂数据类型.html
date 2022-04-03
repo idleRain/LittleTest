@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const data = {
+        name: '小丁',
+        age: 18,
+        gender: '男'
+    }
+    // 储存复杂数据类型必须先转换为 JSON 字符串
+    localStorage.setItem('data',JSON.stringify(data))
+    console.log(localStorage.getItem('data'))
+    // 取,字符串转成对象
+    console.log(JSON.parse(localStorage.getItem('data')))
+</script>
+</body>
+</html>

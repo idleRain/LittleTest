@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const arr1 = [10, 20, 30]
+    // map 方法返回的是数组 ， 第一个参数：遍历数组的每个值，第二个参数：下标
+    const newArr = arr1.map(function (item, index) {
+        console.log(item,index)
+        return item + 10
+    })
+    console.log(newArr)
+</script>
+</body>
+</html>
