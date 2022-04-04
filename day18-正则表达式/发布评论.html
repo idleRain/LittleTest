@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <textarea style="font-size: 18px;"></textarea>
+<button onclick="f()">发布</button>
+<p></p>
+<script>
+    const text = document.querySelector('textarea')
+    const btn = document.querySelector('button')
+    const p = document.querySelector('p')
+    function f() {
+        // 替换
+        p.innerText = text.value.replace(/激情|基情/ig,'**')
+        text.value = ''
+    }
+</script>
+</body>
+</html>
