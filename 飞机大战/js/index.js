@@ -7,19 +7,19 @@ const BULLET_HEIGHT = 16;
 const ENEMY_WIDTH = 60;
 const ENEMY_HEIGHT = 40;
 
-var canvas = document.querySelector('#canvas');
+const canvas = document.querySelector('#canvas');
 canvas.width = WIDTH;
 canvas.height = HEIGHT;
 
-var ctx = canvas.getContext('2d');
+const ctx = canvas.getContext('2d');
 
-var planeImg = new Image();
+const planeImg = new Image();
 planeImg.src = "images/hero.png";
-var bgImg = new Image();
+const bgImg = new Image();
 bgImg.src = "images/bg.jpg";
-var zdImg = new Image();
+const zdImg = new Image();
 zdImg.src = "images/bullet.png";
-var drImg = new Image();
+const drImg = new Image();
 drImg.src = "images/enemy.png";
 
 // var bzImg = new Image();
@@ -38,7 +38,7 @@ drImg.src = "images/enemy.png";
 // }
 
 // 背景对象
-var bgObj = {
+const bgObj = {
     x: 0,
     y: 0,
     speed: 1.2,
