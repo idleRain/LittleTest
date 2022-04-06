@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #721c24;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        table {
+            margin: 0 auto;
+            width: 800px;
+            border-collapse: collapse;
+            color: #004085;
+        }
+
+        th {
+            padding: 10px;
+            background: #cfe5ff;
+
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        td,
+        th {
+            border: 1px solid #b8daff;
+        }
+
+        td {
+            padding: 10px;
+            color: #666;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        tbody tr {
+            background: #fff;
+        }
+
+        tbody tr:hover {
+            background: #e1ecf8;
+        }
+
+        .info {
+            width: 900px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .info input {
+            width: 80px;
+            height: 25px;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid #16da47;
+            padding-left: 5px;
+        }
+
+        .info button {
+            width: 60px;
+            height: 25px;
+            background-color: #e68a12;
+            outline: none;
+            border: 0;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .info .age {
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+<h1>报名系统</h1>
+<form action="" id="info">
+    <div class="info">
+        班级：<input type="text" class="class" name="class"/>
+        姓名：<input type="text" class="uname" name="uname"/>
+        年龄：<input type="text" class="age" name="age"/>
+        性别:
+        <select name="gender" class="gender">
+            <option value="男">男</option>
+            <option value="女">女</option>
+        </select>
+        学科:
+        <select name="subject" class="subject">
+            <option value="前端">前端</option>
+            <option value="Java">Java</option>
+            <option value="测试">测试</option>
+            <option value="UI">UI</option>
+        </select>
+        <button class="add">报名</button>
+    </div>
+</form>
+
+<h1>学生名单</h1>
+<table>
+    <thead>
+    <tr>
+        <th>班级</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>学科</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- <tr>
+        <td>204</td>
+        <td>小明</td>
+        <td>22</td>
+        <td>男</td>
+        <td>前端</td>
+        <td>
+          <a href="javascript:" class="delete">删除</a>
+        </td>
+      </tr> -->
+    </tbody>
+</table>
+<script>
+    const data = []
+    const info = document.querySelector('#info')
+    const tb = document.querySelector('tbody')
+
+    info.addEventListener('submit', function (e) {
+        add()
+        e.preventDefault()
+    })
+
+    //增加
+    function add() {
+        const classNum = document.querySelector('.class')
+        const uname = document.querySelector('.uname')
+        const age = document.querySelector('.age')
+        const gender = document.querySelector('.gender').value
+        const subject = document.querySelector('.subject').value
+        if (classNum.value && uname.value && age.value) {
+            newArr = {}
+            newArr.classNum = classNum.value
+            newArr.uname = uname.value
+            newArr.age = age.value
+            newArr.gender = gender
+            newArr.subject = subject
+            data.push(newArr)
+
+            classNum.value = ''
+            uname.value = ''
+            age.value = ''
+            render()
+        } else {
+            alert('信息输入不全，请重新输入')
+        }
+    }
+
+    // 删除
+    tb.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+            const i = +e.target.dataset.id
+            data.splice(i, 1)
+            render()
+        }
+    })
+
+    // 重新渲染
+    function render() {
+        let str = ''
+        data.forEach(function (value, index) {
+            str += `
+            <tr>
+                <td>${value.classNum}</td>
+                <td>${value.uname}</td>
+                <td>${value.age}</td>
+                <td>${value.gender}</td>
+                <td>${value.subject}</td>
+                <td>
+                     <a href="javascript:" class="delete" data-id="${index}">删除</a>
+                </td>
+            </tr>
+        `
+        })
+        tb.innerHTML = str
+    }
+</script>
+</body>
+
+</html>
