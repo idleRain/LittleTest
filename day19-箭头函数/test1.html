@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        debugger
+        function outer(){
+            debugger
+            let a  = 1
+            debugger
+            function fn(){
+                debugger
+                console.log(a)
+                debugger
+            }
+            debugger
+            fn()
+            debugger
+        }
+        debugger
+        outer()
+        debugger
+    </script>
+</body>
+
+</html>
