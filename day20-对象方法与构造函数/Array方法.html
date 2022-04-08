@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const arr = [1, 2, 3, 4, 5]
+    // reduce(function (累计值，当前元素){}，起始值)    没有起始值默认则默认为 0
+    const newArr1 = arr.reduce((prev, item) => prev + item, 0)
+    console.log(newArr1)
+
+    console.log('-------------')
+
+    const phone = [{name:'小米',price:1999},{name:'vivo',price: 2999},{name:'IPhone',price: 50}]
+    // 查找数组里的元素，找到则返回当前元素，没找到则返回 undefined
+    const newArr2 = phone.find((item) => item.name === 'IPhone')
+    console.log(newArr2)
+
+    console.log('-------------')
+
+    const numArr = [15,20,25,30]
+    // 判断数组所有元素是否都符合条件，是则返回 true ，否则返回 false
+    console.log(numArr.every(item => item >= 10))
+    console.log(numArr.every(item => item >= 22))
+
+    console.log('-------------')
+</script>
+</body>
+</html>

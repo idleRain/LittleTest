@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const obj = new Object({name:'小丁',age:18,gender:'男'})
+    // 获得对象的所有 key ，返回一个数组
+    console.log(Object.keys(obj))
+    // 获得对象的所有 value ， 返回一个数组
+    console.log(Object.values(obj))
+    const o = {}
+    // 将一个对象拷贝给另一个对象 assign(第一个参数：被赋值的对象，第二个参数：要拷贝的对象)
+    console.log(Object.assign(o,obj))
+</script>
+</body>
+</html>
