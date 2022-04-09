@@ -1,0 +1,28 @@
+<template>
+  <ul class="list">
+    <MyItem v-for="todo in todos" :key="todo.id" :todo="todo" :changeTodo="changeTodo"/>
+  </ul>
+</template>
+
+<script>
+import MyItem from "@/components/MyItem";
+
+export default {
+  name: "MyList",
+  components: {MyItem},
+  // 接收 App 组件的数据
+  props: ['todos','changeTodo']
+}
+</script>
+
+<style lang="less" scoped>
+.list {
+  border: 1px solid #cfcfcf;
+  border-radius: 3px;
+  overflow: hidden;
+
+  .item:not(:first-child) {
+    border-top: 1px solid #cfcfcf;
+  }
+}
+</style>
