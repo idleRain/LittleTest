@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>面向对象封装消息提示</title>
+    <style>
+        .modal {
+            width: 300px;
+            min-height: 100px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            position: fixed;
+            z-index: 999;
+            left: 50%;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            background-color: #fff;
+        }
+
+        .modal .header {
+            line-height: 40px;
+            padding: 0 10px;
+            position: relative;
+            font-size: 20px;
+        }
+
+        .modal .header i {
+            font-style: normal;
+            color: #999;
+            position: absolute;
+            right: 15px;
+            top: -2px;
+            cursor: pointer;
+        }
+
+        .modal .body {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .modal .footer {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px;
+        }
+
+        .modal .footer a {
+            padding: 3px 8px;
+            background: #ccc;
+            text-decoration: none;
+            color: #fff;
+            border-radius: 2px;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .modal .footer a.submit {
+            background-color: #369;
+        }
+    </style>
+</head>
+
+<body>
+<button id="delete">删除</button>
+<button id="login">登录</button>
+
+<!-- <div class="modal">
+  <div class="header">温馨提示 <i>x</i></div>
+  <div class="body">您没有删除权限操作</div>
+</div> -->
+
+
+<script>
+    function Modal(title = '', msg = '') {
+        this.title = title
+        this.msg = msg
+        this.modalBox = document.createElement('div')
+        this.modalBox.className = 'modal'
+        console.log(this)
+        this.modalBox.innerHTML = `
+             <div class="header">${this.title} <i>x</i></div>
+             <div class="body">${this.msg}</div>
+        `
+    }
+
+    // function Fun() {
+    //     this.modalBox = document.createElement('div')
+    //     this.modalBox.className = 'modal'
+    //     console.log(this)
+    //     this.modalBox.innerHTML = `
+    //          <div class="header">${this.title} <i>x</i></div>
+    //          <div class="body">${this.msg}</div>
+    //     `
+    // }
+
+
+    // Fun.prototype = new Modal('哈哈', '你好')
+    // Fun.prototype.constructor = Fun
+    // const a = new Fun()
+
+    Modal.prototype.open = function () {
+        if (!document.querySelector('.modal')) {
+            document.body.appendChild(this.modalBox)
+            this.modalBox.querySelector('i').addEventListener('click', () => {
+                this.close()
+            })
+        }
+    }
+    Modal.prototype.close = function () {
+        document.body.removeChild(this.modalBox)
+    }
+
+    const del = document.querySelector('#delete')
+    del.addEventListener('click', function () {
+        const a = new Modal('温馨提示', '您没有删除权限')
+        a.open()
+    })
+
+    const login = document.querySelector('#login')
+    login.addEventListener('click', function () {
+        const b = new Modal('哈哈', '你TM哈哈')
+        b.open()
+    })
+
+</script>
+</body>
+
+</html>

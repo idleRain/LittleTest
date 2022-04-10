@@ -1,6 +1,6 @@
 <template>
   <ul class="list">
-    <MyItem v-for="todo in todos" :key="todo.id" :todo="todo" :changeTodo="changeTodo"/>
+    <MyItem v-for="todo in todos" :key="todo.id" :todo="todo" :changeTodo="changeTodo" :removeItem="removeItem"/>
   </ul>
 </template>
 
@@ -11,7 +11,7 @@ export default {
   name: "MyList",
   components: {MyItem},
   // 接收 App 组件的数据
-  props: ['todos','changeTodo']
+  props: ['todos','changeTodo','removeItem']
 }
 </script>
 

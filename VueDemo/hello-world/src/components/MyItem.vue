@@ -1,8 +1,14 @@
 <template>
   <li class="item">
-    <input type="checkbox" :checked="todo.done" v-model="check" @change="checkedTodo(todo.id)" >
-    <span :class="active">{{todo.title}}</span>
-    <a href="javascript:void(0)">删除任务</a>
+    <label :for="todo.id">
+      <input type="checkbox"
+             :checked="todo.done"
+             :id="todo.id"
+             @change="checkedTodo(todo.id);checkActive(todo.done)"
+      >
+      <span :class="active">{{ todo.title }}</span>
+    </label>
+    <a href="javascript:void(0)" @click="handlerRemove(todo.id)">删除事项</a>
   </li>
 </template>
 
@@ -10,31 +16,36 @@
 export default {
   name: "MyItem",
   // 接收 MyItem 组件的数据并渲染
-  props:['todo','changeTodo'],
-  data(){
-    return{
-      // active:'',
-      // check:
+  props: ['todo', 'changeTodo','removeItem'],
+  data() {
+    return {
+      active: '',
+      // check:false
     }
   },
-  methods:{
-    checkedTodo(id){
+  methods: {
+    checkedTodo(id) {
       // 将接收到的 id形参 传回 Vue 组件的 changeTodo 函数
       this.changeTodo(id)
     },
-    // checkActive(done){
-    //   if (done){
-    //     this.active = ''
-    //     // this.check = true
-    //   }else {
-    //     this.active = 'active'
-    //     // this.check = false
-    //   }
-    // }
+    checkActive(done) {
+      console.log(111)
+      if (this.todo.done || done) {
+        this.active = 'active'
+      } else {
+        this.active = ''
+      }
+    },
+    // 将此 item 的 id 属性传回 Vue 组件
+    handlerRemove(id){
+      if (confirm('确认删除吗？')){
+        this.removeItem(id)
+      }
+    }
   },
-  // mounted() {
-  //   if (this.check) this.active = 'active'
-  // }
+  mounted() {
+    this.checkActive()
+  }
 }
 </script>
 
@@ -53,8 +64,10 @@ export default {
     position: relative;
     transition: all .2s;
     font-size: 16px;
-    &.active{
+
+    &.active {
       color: #999;
+      text-decoration: line-through;
     }
   }
 

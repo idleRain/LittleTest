@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Star(name,age) {
+        this.name = name
+        this.age = age
+    }
+    const dyf = new Star('小丁',18)
+    const fyd = new Star('小锋',19)
+    // 在原型对象上定义
+    Star.prototype.fun = function () {
+        console.log('哈哈哈')
+    }
+    dyf.fun()
+    fyd.fun()
+    console.log('----------------')
+    console.log(dyf.__proto__ === Star.prototype)
+    console.log(dyf.__proto__.constructor === Star.prototype.constructor)
+    console.log('----------------')
+    console.log(dyf.fun === fyd.fun)
+    console.log(Star.prototype.constructor)
+</script>
+</body>
+</html>

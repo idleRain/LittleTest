@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 自定义一个求数组最大值的原型函数
+    Array.prototype.max = function () {
+        return Math.max(...this)
+    }
+    // 自定义一个求数组值之和的原型函数
+    Array.prototype.sum = function () {
+        return this.reduce((prev, item) => prev + item)
+    }
+    const arr = [1, 2, 54, 56, 8, 32, 19]
+    console.log(arr.max())
+    console.log(arr.sum())
+</script>
+</body>
+</html>

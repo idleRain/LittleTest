@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Star() {
+    }
+
+    console.log(Star.prototype)
+    Star.prototype = {
+        // 重新指回创造这个原型对象的 构造函数
+        constructor: Star,
+        sing : function () {
+            console.log('唱歌')
+        },
+        dance : function () {
+            console.log('跳舞')
+        }
+    }
+    console.log(Star.prototype)
+</script>
+</body>
+</html>
