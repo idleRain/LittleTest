@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <h2>TodoList 代办事项</h2>
     <!--    将函数传给 MyHeader 进行添加数据-->
     <MyHeader :addTodo="addTodo"></MyHeader>
     <!--    将数据传给 MyList 进行渲染-->
@@ -109,9 +108,5 @@ export default {
   border: 2px solid #ccc;
   border-radius: 4px;
 
-  h2 {
-    color: #404040;
-    margin-bottom: 10px;
-  }
 }
 </style>

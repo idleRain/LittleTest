@@ -13,9 +13,11 @@ export default {
   name: "MyFooter",
   props: ['todos','checkAllTodo'],
   computed: {
+    // 全部事项计数
     total() {
       return this.todos.length
     },
+    // 已完成计数
     completeTodo() {
       return this.todos.reduce((pre, todo) => pre + (todo.done ? 1 : 0), 0)
     },
@@ -24,7 +26,6 @@ export default {
         return this.total === this.completeTodo && this.total > 0
       },
       set(value){
-        console.log('@',value)
         this.checkAllTodo(value)
       }
     }

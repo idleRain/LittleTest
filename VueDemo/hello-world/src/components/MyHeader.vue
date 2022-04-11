@@ -1,5 +1,6 @@
 <template>
   <div class="header">
+    <h2>TodoList 代办事项</h2>
     <input type="text" placeholder="请输入您的代办事项，按回车键确认" v-model="title" @keyup.enter="add">
   </div>
 </template>
@@ -21,7 +22,6 @@ export default {
       // 去掉输入框空格后再判断
       if (this.title.trim()) {
         const todoObj = {id: nanoid(), title: this.title, done: false}
-        console.log(todoObj)
         // 添加时调用 App 组件传过来的 addTodo 函数 ， 再将输入的数据通过函数形参传回 App 组件
         this.addTodo(todoObj)
         this.title = ''
@@ -38,6 +38,10 @@ div.header {
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 3px;
+  }
+  h2 {
+    color: #494949;
+    margin-bottom: 10px;
   }
 }
 </style>

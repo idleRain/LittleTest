@@ -4,9 +4,10 @@
       <input type="checkbox"
              :checked="todo.done"
              :id="todo.id"
-             @change="checkedTodo(todo.id);checkActive(todo.done)"
+             @change="checkedTodo(todo.id)"
       >
-      <span :class="active">{{ todo.title }}</span>
+      <!-- 根据 todo.done 动态绑定 类名 -->
+      <span :class={active:todo.done}>{{ todo.title }}</span>
     </label>
     <a href="javascript:void(0)" @click="handlerRemove(todo.id)">删除事项</a>
   </li>
@@ -15,38 +16,41 @@
 <script>
 export default {
   name: "MyItem",
+
   // 接收 MyItem 组件的数据并渲染
-  props: ['todo', 'changeTodo','removeItem'],
-  data() {
-    return {
-      active: '',
-      // check:false
-    }
-  },
+  props: ['todo', 'changeTodo', 'removeItem'],
+  // data() {
+  //   return {
+  //     active: '',
+  //     // check:false
+  //   }
+  // },
   methods: {
     checkedTodo(id) {
       // 将接收到的 id形参 传回 Vue 组件的 changeTodo 函数
       this.changeTodo(id)
     },
-    checkActive(done) {
-      console.log(111)
-      if (this.todo.done || done) {
-        this.active = 'active'
-      } else {
-        this.active = ''
-      }
-    },
+    // checkActive(done) {
+    //   console.log(111)
+    //   if (this.todo.done || done) {
+    //     this.active = 'active'
+    //   } else {
+    //     this.active = ''
+    //   }
+    // },
     // 将此 item 的 id 属性传回 Vue 组件
-    handlerRemove(id){
-      if (confirm('确认删除吗？')){
+    handlerRemove(id) {
+      if (confirm('确认删除吗？')) {
         this.removeItem(id)
+        console.log('')
       }
     }
   },
-  mounted() {
-    this.checkActive()
-  }
+  // mounted() {
+  //   this.checkActive()
+  // }
 }
+
 </script>
 
 <style lang="less" scoped>

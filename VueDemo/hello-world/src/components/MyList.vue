@@ -1,5 +1,5 @@
 <template>
-  <ul class="list">
+  <ul class="list" v-show="todos[0]">
     <MyItem v-for="todo in todos" :key="todo.id" :todo="todo" :changeTodo="changeTodo" :removeItem="removeItem"/>
   </ul>
 </template>
