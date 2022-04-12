@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		const obj = {
+			name:'小丁',age: 18,hobby:['抽烟','喝酒','开车']
+		}
+		function deepCopy (newObj,oldObj) {
+			for( k in oldObj){
+				// 如果拷贝的是复杂数据类型则做出判断
+				if (oldObj[k] instanceof Array) {
+					newObj[k] = []
+					deepCopy(newObj[k],oldObj[k])
+				// 如果是普通数据类型则直接赋值
+				}else {
+					{
+						newObj[k] = oldObj[k]
+					}
+				}
+			}
+		}
+		const o ={}
+		deepCopy(o,obj)
+
+		o.hobby[0] = '学习'
+		console.log(o )
+		console.log(obj)
+</script>
+</body>
+</html>

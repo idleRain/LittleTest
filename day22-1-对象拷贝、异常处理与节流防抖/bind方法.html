@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>点我点我</button>
+<script>
+    document.querySelector('button').addEventListener('click', function () {
+        this.disabled = true
+        setTimeout(function () {
+            this.disabled = false
+        }.bind(this), 2000)     // bind() 方法只用来修改 this 指向，不会调用函数
+
+        // setTimeout(() => {
+        //     this.disabled = false
+        // }, 2000)
+    })
+</script>
+</body>
+</html>

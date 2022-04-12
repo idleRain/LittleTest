@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .list {
+        width: 990px;
+        margin: 20px auto 0;
+      }
+      .item {
+        padding: 15px;
+        transition: all 0.5s;
+        display: flex;
+        border-top: 1px solid #e4e4e4;
+      }
+      .item:nth-child(4n) {
+        margin-left: 0;
+      }
+      .item:hover {
+        cursor: pointer;
+        background-color: #f5f5f5;
+      }
+      .item img {
+        width: 80px;
+        height: 80px;
+        margin-right: 10px;
+      }
+      .item .name {
+        font-size: 18px;
+        margin-right: 10px;
+        color: #333;
+        flex: 2;
+      }
+      .item .name .tag {
+        display: block;
+        padding: 2px;
+        font-size: 12px;
+        color: #999;
+      }
+      .item .price,
+      .item .sub-total {
+        font-size: 18px;
+        color: firebrick;
+        flex: 1;
+      }
+      .item .price::before,
+      .item .sub-total::before,
+      .amount::before {
+        content: "¥";
+        font-size: 12px;
+      }
+      .item .spec {
+        flex: 2;
+        color: #888;
+        font-size: 14px;
+      }
+      .item .count {
+        flex: 1;
+        color: #aaa;
+      }
+      .total {
+        width: 990px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: flex-end;
+        border-top: 1px solid #e4e4e4;
+        padding: 20px;
+      }
+      .total .amount {
+        font-size: 18px;
+        color: firebrick;
+        font-weight: bold;
+        margin-right: 50px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="list">
+      <!-- <div class="item">
+      <img src="https://yanxuan-item.nosdn.127.net/84a59ff9c58a77032564e61f716846d6.jpg" alt="">
+      <p class="name">称心如意手摇咖啡磨豆机咖啡豆研磨机 <span class="tag">【赠品】10优惠券</span></p>
+      <p class="price">289.90</p>
+      <p class="count">x2</p>
+      <p class="sub-total">579.80</p>
+    </div> -->
+    </div>
+    <div class="total">
+      <div>合计：<span class="amount">1000.00</span></div>
+    </div>
+    <script>
+      const goodsList = [
+        {
+          id: 1,
+          goods_name:
+            "班俏BANQIAO超火ins潮卫衣女士2020秋季新款韩版宽松慵懒风薄款外套带帽上衣",
+          goods_img: "https://www.escook.cn/vuebase/pics/1.png",
+          goods_price: 108,
+          goods_count: 1
+        },
+        {
+          id: 2,
+          goods_name:
+            "嘉叶希连帽卫衣女春秋薄款2020新款宽松bf韩版字母印花中长款外套ins潮",
+          goods_img: "https://www.escook.cn/vuebase/pics/2.png",
+          goods_price: 129,
+          goods_count: 1
+        },
+        {
+          id: 3,
+          goods_name:
+            "思蜜怡2020休闲运动套装女春秋季新款时尚大码宽松长袖卫衣两件套",
+          goods_img: "https://www.escook.cn/vuebase/pics/3.png",
+          goods_price: 198,
+          goods_count: 1
+        },
+        {
+          id: 4,
+          goods_name:
+            "思蜜怡卫衣女加绒加厚2020秋冬装新款韩版宽松上衣连帽中长款外套",
+          goods_img: "https://www.escook.cn/vuebase/pics/4.png",
+          goods_price: 99,
+          goods_count: 1
+        },
+        {
+          id: 5,
+          goods_name:
+            "幂凝早秋季卫衣女春秋装韩版宽松中长款假两件上衣薄款ins盐系外套潮",
+          goods_img: "https://www.escook.cn/vuebase/pics/5.png",
+          goods_price: 156,
+          goods_count: 1
+        }
+      ]
+
+      const list = document.querySelector('.list')
+      let str = ''
+
+      let totalPrice = 0
+      goodsList.forEach(item => {
+        const {goods_name,goods_img,goods_price,goods_count} = item
+        const total = (goods_price * goods_count)
+        totalPrice += total
+
+        str += `
+        <div class="item">
+          <img src="${goods_img}" alt="">
+          <p class="name">${goods_name}</p>
+          <p class="price">${goods_price}</p>
+          <p class="count">x${goods_count}</p>
+          <p class="sub-total">${total}</p>
+        </div>
+      `
+      })
+      // 渲染页面
+      list.innerHTML = str
+
+      document.querySelector('.amount').innerText = totalPrice
+    </script>
+  </body>
+</html>

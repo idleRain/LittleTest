@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>商品渲染</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .list {
+            width: 990px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .item {
+            width: 240px;
+            margin-left: 10px;
+            padding: 20px 30px;
+            transition: all 0.5s;
+            margin-bottom: 20px;
+        }
+
+        .item:nth-child(4n) {
+            margin-left: 0;
+        }
+
+        .item:hover {
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+            transform: translate3d(0, -4px, 0);
+            cursor: pointer;
+        }
+
+        .item img {
+            width: 100%;
+        }
+
+        .item .name {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .item .price {
+            font-size: 22px;
+            color: firebrick;
+        }
+
+        .item .price::before {
+            content: "¥";
+            font-size: 14px;
+        }
+
+        .filter {
+            display: flex;
+            width: 990px;
+            margin: 0 auto;
+            padding: 50px 30px;
+        }
+
+        .filter a {
+            padding: 10px 20px;
+            background: #f5f5f5;
+            color: #666;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .filter a.active {
+            background: #05943c;
+            color: #fff;
+        }
+
+        .filter input {
+            width: 50px;
+        }
+
+        .filter button {
+            margin-left: 20px;
+            width: 80px;
+            height: 40px;
+            background-color: #eee;
+        }
+
+        .filter a {
+            padding: 10px 20px;
+            background: #f5f5f5;
+            color: #666;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .filter a:active,
+        .filter a:focus {
+            background: #05943c;
+            color: #fff;
+        }
+
+        .filter button:hover {
+            background-color: #0cf177;
+        }
+    </style>
+</head>
+
+<body>
+<div class="filter">
+    <a href="javascript:void(0);">0-100元</a>
+    <a href="javascript:void(0);">100-400元</a>
+    <a href="javascript:void(0);">400元以上</a>
+    <a href="javascript:void(0);">全部区间</a>
+    <input type="text" placeholder="最低价"/>
+    <button>搜索</button>
+</div>
+<div class="list">
+    <!-- <div class="item">
+      <img src="" alt="">
+      <p class="name"></p>
+      <p class="price"></p>
+    </div> -->
+</div>
+<script>
+    // 1. 初始化数据
+    const goodsList = [
+        {
+            id: "4001172",
+            name: "称心如意手摇咖啡磨豆机咖啡豆研磨机",
+            price: "289.00",
+            picture:
+                "https://yanxuan-item.nosdn.127.net/84a59ff9c58a77032564e61f716846d6.jpg"
+        },
+        {
+            id: "4001594",
+            name: "日式黑陶功夫茶组双侧把茶具礼盒装",
+            price: "288.00",
+            picture:
+                "https://yanxuan-item.nosdn.127.net/3346b7b92f9563c7a7e24c7ead883f18.jpg"
+        },
+        {
+            id: "4001009",
+            name: "竹制干泡茶盘正方形沥水茶台品茶盘",
+            price: "109.00",
+            picture:
+                "https://yanxuan-item.nosdn.127.net/2d942d6bc94f1e230763e1a5a3b379e1.png"
+        },
+        {
+            id: "4001874",
+            name: "古法温酒汝瓷酒具套装白酒杯莲花温酒器",
+            price: "488.00",
+            picture:
+                "https://yanxuan-item.nosdn.127.net/44e51622800e4fceb6bee8e616da85fd.png"
+        },
+        {
+            id: "4001649",
+            name: "大师监制龙泉青瓷茶叶罐",
+            price: "139.00",
+            picture:
+                "https://yanxuan-item.nosdn.127.net/4356c9fc150753775fe56b465314f1eb.png"
+        },
+        {
+            id: "3997185",
+            name: "与众不同的口感汝瓷白酒杯套组1壶4杯",
+            price: "108.00",
+            picture:
+                "https://yanxuan-item.nosdn.127.net/8e21c794dfd3a4e8573273ddae50bce2.jpg"
+        },
+        {
+            id: "3997403",
+            name: "手工吹制更厚实白酒杯壶套装6壶6杯",
+            price: "99.00",
+            picture:
+                "https://yanxuan-item.nosdn.127.net/af2371a65f60bce152a61fc22745ff3f.jpg"
+        },
+        {
+            id: "3998274",
+            name: "德国百年工艺高端水晶玻璃红酒杯2支装",
+            price: "139.00",
+            picture:
+                "https://yanxuan-item.nosdn.127.net/8896b897b3ec6639bbd1134d66b9715c.jpg"
+        },
+        {
+            id: "1",
+            name:
+                "班俏BANQIAO超火ins潮卫衣女士2020秋季新款韩版宽松慵懒风薄款外套带帽上衣",
+            picture: "https://www.escook.cn/vuebase/pics/1.png",
+            price: "108"
+        },
+        {
+            id: "2",
+            name:
+                "嘉叶希连帽卫衣女春秋薄款2020新款宽松bf韩版字母印花中长款外套ins潮",
+            picture: "https://www.escook.cn/vuebase/pics/2.png",
+            price: "129"
+        },
+        {
+            id: "3",
+            name: "思蜜怡2020休闲运动套装女春秋季新款时尚大码宽松长袖卫衣两件套",
+            picture: "https://www.escook.cn/vuebase/pics/3.png",
+            price: "298"
+        },
+        {
+            id: "4",
+            name: "思蜜怡卫衣女加绒加厚2020秋冬装新款韩版宽松上衣连帽中长款外套",
+            picture: "https://www.escook.cn/vuebase/pics/4.png",
+            price: "199"
+        },
+        {
+            id: "5",
+            name:
+                "幂凝早秋季卫衣女春秋装韩版宽松中长款假两件上衣薄款ins盐系外套潮",
+            picture: "https://www.escook.cn/vuebase/pics/5.png",
+            price: "356"
+        },
+        {
+            id: "6",
+            name: "ME&CITY女装冬季新款针织抽绳休闲连帽卫衣女",
+            picture: "https://www.escook.cn/vuebase/pics/6.png",
+            price: "642"
+        },
+        {
+            id: "7",
+            name:
+                "幂凝假两件女士卫衣秋冬女装2020年新款韩版宽松春秋季薄款ins潮外套",
+            picture: "https://www.escook.cn/vuebase/pics/7.png",
+            price: "819"
+        },
+        {
+            id: "8",
+            name: "依魅人2020休闲运动衣套装女秋季新款秋季韩版宽松卫衣 时尚两件套",
+            picture: "https://www.escook.cn/vuebase/pics/8.png",
+            price: "478"
+        },
+        {
+            id: "9",
+            name:
+                "芷臻(zhizhen)加厚卫衣2020春秋季女长袖韩版宽松短款加绒春秋装连帽开衫外套冬",
+            picture: "https://www.escook.cn/vuebase/pics/9.png",
+            price: "328"
+        },
+        {
+            id: "10",
+            name:
+                "Semir森马卫衣女冬装2019新款可爱甜美大撞色小清新连帽薄绒女士套头衫",
+            picture: "https://www.escook.cn/vuebase/pics/10.png",
+            price: "253"
+        }
+    ]
+
+    const list = document.querySelector('.list')
+
+    // 渲染函数
+    function render(goodsList) {
+        list.innerHTML = goodsList.map(item => {
+            const {name, picture, price} = item
+            return `
+            <div class="item">
+              <img src="${picture}" alt="">
+              <p class="name">${name}</p>
+              <p class="price">${price}</p>
+            </div>`
+        }).join('')
+    }
+
+    // 过滤函数
+    function filter(star, end) {
+        const s = goodsList.filter(item => Number(item.price) > star)
+        if (!end) {
+            return s
+        } else {
+            return s.filter((item => Number(item.price) <= end))
+        }
+    }
+
+    // 页面加载时渲染一次
+    render(goodsList)
+
+    // a 标签筛选
+    const isA = document.querySelectorAll('.filter a')
+    // 0-100
+    isA[0].addEventListener('click', function () {
+        console.log(this)
+        render(filter(0, 100))
+    })
+    // 100-400
+    isA[1].addEventListener('click', function () {
+        render(filter(100, 400))
+    })
+    // >400
+    isA[2].addEventListener('click', function () {
+        render(filter(400))
+    })
+    // 全部
+    isA[3].addEventListener('click', function () {
+        render(goodsList)
+    })
+
+    //搜索框
+    const btn = document.querySelector('.filter button')
+    btn.addEventListener('click', function () {
+        const price = btn.previousElementSibling.value
+        if (price) render(filter(Number(price)))
+    })
+</script>
+</body>
+
+</html>

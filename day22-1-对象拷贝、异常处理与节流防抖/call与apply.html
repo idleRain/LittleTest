@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const obj = {name:'小丁',age: 18}
+    function f1(a, b) {
+        console.log(this)
+        return a + b
+    }
+    function f2(a,b,c) {
+        console.log(this)
+        return a * b * c
+    }
+    // 第一个参数是修改调用的函数 this 指向，后面是调用函数的实参
+    console.log(f1.call(obj,10,20))
+    // 和 call() 方法差不多，但只有两个参数，第二个参数是个数组
+    console.log(f2.apply(obj,[11,22,33]))
+</script>
+</body>
+</html>
