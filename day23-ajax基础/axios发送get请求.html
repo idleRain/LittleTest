@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/axios.js"></script>
+</head>
+<body>
+<script>
+    axios({
+        method:'get',
+        url:'http://www.liulongbin.top:3009/api/getbooks',
+        // 传递参数的本质
+        // url:'http://www.liulongbin.top:3009/api/getbooks?id=1&bookname=西游记',
+
+        // 参数
+        // params:{
+        //     id:1,
+        //     bookname : '西游记'
+        // }
+    }).then(({data:res}) => {
+        console.log(res.data)
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/axios.js"></script>
+</head>
+<body>
+<script>
+    axios({
+        method: 'post',
+        url: 'http://www.liulongbin.top:3009/api/addbook',
+        data: {
+            bookname: '人间尼格',
+            author: '小毕宰治',
+            publisher: '大冤种出版社'
+        }
+    }).then(({data: res}) => {
+        console.log(res)
+    })
+</script>
+</body>
+</html>

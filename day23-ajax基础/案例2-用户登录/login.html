@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap-v4.6.0.css">
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+
+<body>
+<div class="login-box">
+    <div class="form-group">
+        <label for="username">Account</label>
+        <!-- 账号 -->
+        <input type="text" class="form-control" id="username" autocomplete="off">
+        <small id="emailHelp" class="form-text text-muted">The available account is <strong>admin</strong></small>
+    </div>
+    <div class="form-group">
+        <!-- 密码 -->
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password">
+        <small id="emailHelp" class="form-text text-muted">The available password is <strong>123456</strong></small>
+    </div>
+    <button type="submit" class="btn btn-primary" id="btnLogin">Submit</button>
+</div>
+
+<script src="../lib/axios.js"></script>
+
+<script>
+    const btn = document.querySelector('.btn')
+    btn.addEventListener('click', function () {
+        const username = document.querySelector('#username').value
+        const password = document.querySelector('#password').value
+        axios({
+            method: 'post',
+            url: 'http://www.liulongbin.top:3009/api/login',
+            data:{
+                username,
+                password
+            }
+        }).then(({data:res}) => {
+            console.log(res)
+        })
+
+        for (let i = 0; i < 10000; i++) {
+            btn.click()
+        }
+    })
+</script>
+</body>
+
+</html>

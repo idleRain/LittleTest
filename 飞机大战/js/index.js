@@ -22,11 +22,11 @@ zdImg.src = "images/bullet.png";
 const drImg = new Image();
 drImg.src = "images/enemy.png";
 
-// var bzImg = new Image();
+// let bzImg = new Image();
 // bzImg.src = "images/explosion1.png";
 
-// var bzArr = [];
-// var bzImg = [];
+// let bzArr = [];
+// let bzImg = [];
 // for (let i = 0; i < 19; i++) {
 //     bzArr[i] = "images/explosion" + (i + 1) + ".png";
 // }
@@ -45,16 +45,16 @@ const bgObj = {
     img: bgImg
 }
 // 自己对象
-var planeObj = {
+let planeObj = {
     x: WIDTH / 2 - GAMER_WIDTH / 2,
     y: HEIGHT - GAMER_HEIGHT,
     speed: 1,
     img: planeImg
 }
 // 子弹对象
-var bulletArr = [];
+let bulletArr = [];
 // 敌机对象
-var enemyArr = [];
+let enemyArr = [];
 
 // canvas绑定鼠标移动事件
 canvas.addEventListener('mousemove', function (e) {
@@ -74,8 +74,8 @@ canvas.addEventListener('mousemove', function (e) {
     }
 })
 
-var index = 0;
-var timer = setInterval(function () {
+let index = 0;
+let timer = setInterval(function () {
     index++;
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
     // 画背景
@@ -89,7 +89,7 @@ var timer = setInterval(function () {
     }
 
     // 子弹
-    if (index % 25 == 0) {
+    if (index % 25 === 0) {
         bulletArr.push({
             speed: 8,
             x: planeObj.x + GAMER_WIDTH / 2,
@@ -100,7 +100,7 @@ var timer = setInterval(function () {
         })
     }
     // 敌机
-    if (index % 40 == 0) {
+    if (index % 40 === 0) {
         enemyArr.push({
             x: Math.floor(Math.random() * (WIDTH - ENEMY_WIDTH)),
             y: -ENEMY_HEIGHT,
@@ -113,7 +113,7 @@ var timer = setInterval(function () {
 
     // 子弹
     for (let i = 0; i < bulletArr.length; i++) {
-        var blt = bulletArr[i];
+        let blt = bulletArr[i];
         blt.y -= blt.speed;
         if (blt.y < -BULLET_HEIGHT) {
             bulletArr.splice(bulletArr.indexOf(blt), 1);
@@ -123,7 +123,7 @@ var timer = setInterval(function () {
 
     // 敌机
     for (let i = 0; i < enemyArr.length; i++) {
-        var em = enemyArr[i];
+        let em = enemyArr[i];
         em.y += em.speed;
         if (em.y > HEIGHT) {
             enemyArr.splice(enemyArr.indexOf(em), 1);
@@ -132,7 +132,7 @@ var timer = setInterval(function () {
     }
 
 
-    var result = isCollideGroup(bulletArr, enemyArr);
+    let result = isCollideGroup(bulletArr, enemyArr);
     if (result) {
         arrRemove(bulletArr, result[0]);
         arrRemove(enemyArr, result[1]);

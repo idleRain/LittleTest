@@ -1,0 +1,23 @@
+html,
+body {
+  background-color: #f8f8f8;
+}
+
+.login-box {
+  width: 400px;
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid #efefef;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 1px 1px 5px #cfcfcf;
+  background-color: #fff;
+  transition: box-shadow 0.3s ease;
+}
+
+.login-box:hover {
+  transition: box-shadow 0.3s ease;
+  box-shadow: 1px 1px 20px #cfcfcf;
+}

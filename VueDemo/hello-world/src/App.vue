@@ -1,13 +1,15 @@
 <template>
   <div id="app">
     <!--    自定义事件实现子给父传-->
-        <MySchool v-on:haha="hahaSchool" @demo="m1"></MySchool>
+<!--    <MySchool @haha="hahaSchool" @demo="m1"></MySchool>-->
+<!--    native 修饰符让子组件不把 click 当自定义事件-->
+    <MySchool @haha="hahaSchool" @demo="m1" @click.native="show"></MySchool>
 
     <!--    传参实现子给父传-->
-<!--        <MySchool :hahaSchool="hahaSchool"></MySchool>-->
+    <!--        <MySchool :hahaSchool="hahaSchool"></MySchool>-->
 
     <!--    传参实现子给父传 第二种写法（需要配合生命周期钩子，但是更灵活）-->
-<!--    <MySchool ref="school"></MySchool>-->
+    <!--    <MySchool ref="school"></MySchool>-->
   </div>
 </template>
 
@@ -23,8 +25,11 @@ export default {
     hahaSchool(name) {
       console.log('App组件收到啦', name)
     },
-    m1(){
+    m1() {
       console.log('demo事件被触发啦')
+    },
+    show() {
+      console.log('真的在点击')
     }
   },
   mounted() {
