@@ -35,26 +35,45 @@ export default {
     }
   },
   methods: {
-    //调用时添加对象数据到 todos 里
+    // 调用时添加对象数据到 todos 里
     addTodo(x) {
       this.todos.unshift(x)
     },
+    // 修改 todo 勾选状态
     changeTodo(id) {
       // 将传回的 id 做判断
       this.todos.forEach(todo => {
         if (todo.id === id) todo.done = !todo.done
       })
     },
+    // 修改 todo 内容
+    updateTodo(id,title) {
+      // 将传回的 id 做判断
+      this.todos.forEach(todo => {
+        if (todo.id === id) todo.title = title
+      })
+    },
+    // 全选所有 todo 复选框
     checkAllTodo(value) {
       this.todos.forEach(todo => {
         todo.done = value
       })
     },
+    // 删除已完成
     clearDone() {
       if (confirm('确认删除吗？')) this.todos = this.todos.filter(item => item.done !== true)
     },
-
     //删除数据，根据 MyItem 组件传过来的 id 参数做判断
+    // forEach 遍历数组写法
+    removeItem(id) {
+      this.todos.forEach((item, index) => {
+        if (item.id === id) {
+          this.todos.splice(index, 1)
+          return 0
+        }
+      })
+    }
+  },
     // find 写法
     /*removeItem(id){
       const index = this.todos.find((item,index) => {
@@ -70,16 +89,6 @@ export default {
       this.todos = this.todos.filter(item => item.id !== id)
     }*/
 
-    // forEach 遍历数组写法
-    removeItem(id) {
-      this.todos.forEach((item, index) => {
-        if (item.id === id) {
-          this.todos.splice(index, 1)
-          return 0
-        }
-      })
-    }
-  },
   // 监视 todos ，数据发生改变时修改本地储存
   watch: {
     todos: {
@@ -95,6 +104,9 @@ export default {
     let newData = localStorage.getItem('todo-data')
     newData = newData ? JSON.parse(newData) : []
     this.todos = newData.map(item => item)
+
+    // 绑定全局事件总线 updateTodo 事件
+    this.$bus.$on('updateTodo',this.updateTodo)
   }
 }
 </script>

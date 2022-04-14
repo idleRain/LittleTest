@@ -1,31 +1,130 @@
 <template>
   <div id="app">
-    <MySchool></MySchool>
-    <hr>
-    <MyStudent></MyStudent>
+    <!--    将函数传给 MyHeader 进行添加数据-->
+    <MyHeader :addTodo="addTodo"></MyHeader>
+    <!--    将数据传给 MyList 进行渲染-->
+    <MyList :todos="todos"
+            :changeTodo="changeTodo"
+            :removeItem="removeItem">
+    </MyList>
+    <MyFooter :todos="todos" :checkAllTodo="checkAllTodo" :clearDone="clearDone"></MyFooter>
   </div>
 </template>
 
 <script>
-import MySchool from "@/components/MySchool";
-import MyStudent from "@/components/MyStudent";
+
+import MyHeader from "@/components/MyHeader";
+import MyList from "@/components/MyList";
+import MyFooter from "@/components/MyFooter";
 
 export default {
   name: 'App',
+  // 注册组件
   components: {
-    MySchool,
-    MyStudent
+    MyHeader,
+    MyList,
+    MyFooter
+  },
+  data() {
+    return {
+      // 装数据的空数组对象
+      todos: []
+
+      // 这种方法可以不使用 mounted() 生命周期钩子
+      // todos: JSON.parse(localStorage.getItem('todo-data')) || []
+    }
+  },
+  methods: {
+    // 调用时添加对象数据到 todos 里
+    addTodo(x) {
+      this.todos.unshift(x)
+    },
+    // 修改 todo 勾选状态
+    changeTodo(id) {
+      // 将传回的 id 做判断
+      this.todos.forEach(todo => {
+        if (todo.id === id) todo.done = !todo.done
+      })
+    },
+    // 修改 todo 内容
+    updateTodo(id,title) {
+      // 将传回的 id 做判断
+      this.todos.forEach(todo => {
+        if (todo.id === id) todo.title = title
+      })
+    },
+    // 全选所有 todo 复选框
+    checkAllTodo(value) {
+      this.todos.forEach(todo => {
+        todo.done = value
+      })
+    },
+    // 删除已完成
+    clearDone() {
+      if (confirm('确认删除吗？')) this.todos = this.todos.filter(item => item.done !== true)
+    },
+    //删除数据，根据 MyItem 组件传过来的 id 参数做判断
+    // forEach 遍历数组写法
+    removeItem(id) {
+      this.todos.forEach((item, index) => {
+        if (item.id === id) {
+          this.todos.splice(index, 1)
+          return 0
+        }
+      })
+    }
+  },
+    // find 写法
+    /*removeItem(id){
+      const index = this.todos.find((item,index) => {
+        if (item.id === id){
+          return index
+        }
+      })
+      this.todos.splice(index,1)
+    }*/
+
+    // filter 写法，每次都会返回新数组，写法简洁但可能会耗费更多性能
+    /*removeItem(id){
+      this.todos = this.todos.filter(item => item.id !== id)
+    }*/
+
+  // 监视 todos ，数据发生改变时修改本地储存
+  watch: {
+    todos: {
+      //开启深度监视
+      deep: true,
+      handler(value) {
+        localStorage.setItem('todo-data', JSON.stringify(value))
+      }
+    }
+  },
+  // vm 渲染之前看看本地储存有没有数据，有就传给 todos
+  mounted() {
+    let newData = localStorage.getItem('todo-data')
+    newData = newData ? JSON.parse(newData) : []
+    this.todos = newData.map(item => item)
+
+    // 绑定全局事件总线 updateTodo 事件
+    this.$bus.$on('updateTodo',this.updateTodo)
   }
 }
 </script>
 
-<style>
+<style lang="less">
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin: 100px auto;
+  padding: 15px;
+  width: 500px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+
 }
 </style>
