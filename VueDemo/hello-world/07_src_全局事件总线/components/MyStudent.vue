@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import pubsub from "pubsub-js"
 export default {
   name: "MySchool",
   data(){
@@ -16,9 +15,8 @@ export default {
   },
   methods:{
     chuan(){
-      // 发布消息时的消息名要与订阅消息的消息名一直
-      // pubsub.publish('消息名',数据)
-      pubsub.publish('hello',this.student)
+      // 传数据
+      this.$bus.$emit('hello',this.student)
     }
   }
 }

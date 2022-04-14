@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入 lib 目录下的 bootstrap 样式表 -->
+    <link rel="stylesheet" href="./lib/bootstrap-v4.6.0.css">
+    <style>
+        :root {
+            font-size: 15px;
+        }
+
+        body {
+            padding-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- 栅格系统 -->
+<div class="container-fluid">
+    <!-- 栅格系统中的一行 -->
+    <div class="row">
+        <!-- 左侧的表格，占了 8 列 -->
+        <div class="col-sm-8">
+            <table class="table table-bordered table-striped table-dark table-hover text-center">
+                <thead>
+                <!-- 表头行 -->
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">书名</th>
+                    <th scope="col">作者</th>
+                    <th scope="col">出版社</th>
+                    <th scope="col">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- 表格中的每一行 -->
+                <tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 右侧的添加区域，占了 4 列 -->
+        <div class="col-sm-4">
+            <!-- 添加图书的卡片 -->
+            <div class="card text-white bg-secondary sticky-top">
+                <div class="card-header">添加新图书</div>
+                <form class="card-body bg-light" id="addForm">
+                    <!-- 书名 -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">书名</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="请输入图书名称" name="bookname">
+                    </div>
+                    <!-- 作者 -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">作者</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="请输入作者名字" name="author">
+                    </div>
+                    <!-- 出版社 -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">出版社</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="请输入出版社名称" name="publisher">
+                    </div>
+                    <!-- 添加按钮 -->
+                    <button class="btn btn-dark" type="submit">添加</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 引入 lib 目录下的 jQuery 和 axios -->
+<script src="../../day23-ajax基础/lib/axios.js"></script>
+<script src="../baseURL.js"></script>
+<script>
+    function render() {
+        axios.get('getbooks').then(({data: res}) => {
+            const newArr = res.data.map(item => {
+                return `
+                <tr>
+                    <th scope="row">${item.id}</th>
+                    <td>${item.bookname}</td>
+                    <td>${item.author}</td>
+                    <td>${item.publisher}</td>
+                    <td>
+                        <button type="button" class="btn btn-link btn-sm" data-id="${item.id}">删除</button>
+                    </td>
+                </tr>
+            `
+            })
+            document.querySelector('tbody').innerHTML = newArr.join('')
+        })
+    }
+
+    render()
+
+    const form = document.querySelector('#addForm')
+    form.addEventListener('submit', function (e) {
+        e.preventDefault()
+        const bookname = document.querySelector('[name=bookname]').value.trim()
+        const author = document.querySelector('[name=author]').value.trim()
+        const publisher = document.querySelector('[name=publisher]').value.trim()
+
+        if (bookname === '' || author === '' || publisher === '') return alert('请输入完整信息！')
+
+        axios.post('addbook', {
+            bookname,
+            author,
+            publisher
+        }).then(({data: res}) => {
+            console.log(res)
+            if (res.code === 201) render()
+        })
+    })
+
+    document.querySelector('tbody').addEventListener('click',function (e) {
+        if (e.target.tagName === 'BUTTON') {
+            axios.get('delbook',{
+                params:{
+                    id:e.target.dataset.id
+                }
+            }).then(({data:res}) => {
+                if(res.code === 200) {
+                    console.log('删除成功')
+                    render()
+                }
+            })
+        }
+    })
+</script>
+</body>
+
+</html>

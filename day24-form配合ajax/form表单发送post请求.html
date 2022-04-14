@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--enctype="application/x-www-form-urlencoded"  默认（不适用于提交文件）-->
+<!--<form action="http://www.liulongbin.top:3009/api/form" method="post" enctype="application/x-www-form-urlencoded">-->
+
+<!--enctype="multipart/form-data" 适用于提交文件-->
+<form action="http://www.liulongbin.top:3009/api/form" method="post" enctype="multipart/form-data">
+    <div>
+        <span>用户名：</span>
+        <input type="text" name="username">
+    </div>
+    <div>
+        <span>密码：</span>
+        <input type="password" name="pwd">
+    </div>
+    <div>
+        <button>提交</button>
+    </div>
+</form>
+</body>
+</html>

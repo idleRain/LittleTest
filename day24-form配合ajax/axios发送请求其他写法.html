@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>Get请求不带参数</button>
+<button>GET请求带参数</button>
+<button>post请求不带参数</button>
+<button>post请求带参数</button>
+<script src="../day23-ajax基础/lib/axios.js"></script>
+<!--// 引用全局配置请求的根路径-->
+<script src="baseURL.js"></script>
+
+<script>
+    const btns = document.querySelectorAll('button')
+    // get请求不带参数
+    btns[0].addEventListener('click', function () {
+        axios.get('get').then(res => {
+            console.log(res)
+        })
+    })
+    // get请求带参数
+    btns[1].addEventListener('click', function () {
+        axios.get('get', {
+            params: {
+                name: '小丁',
+                age: 18
+            }
+        }).then(res => {
+            console.log(res)
+        })
+    })
+    // post 请求不带参数
+    btns[2].addEventListener('click', function () {
+        axios.post('post').then(res => {
+            console.log(res)
+        })
+    })
+    // post 请求带参数
+    btns[3].addEventListener('click', function () {
+        axios.post('api/post', {
+            name: '小丁',
+            age: 18
+        }).then(res => {
+            console.log(res)
+        })
+    })
+</script>
+</body>
+</html>
