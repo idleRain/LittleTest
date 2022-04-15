@@ -16,16 +16,16 @@
              type="text">
     </label>
     <div>
-      <a href="javascript:void(0)" @click="handlerEdit(todo)">编辑</a>
+      <a href="javascript:void(0)" v-show="!todo.isEdit" @click="handlerEdit(todo)">编辑</a>
       <a href="javascript:void(0)" @click="handlerRemove(todo.id)">删除</a>
     </div>
   </li>
 </template>
 
 <script>
+
 export default {
   name: "MyItem",
-
   // 接收 MyItem 组件的数据并渲染
   props: ['todo', 'changeTodo', 'removeItem'],
   methods: {
@@ -42,22 +42,24 @@ export default {
     },
     // 编辑
     handlerEdit(todo) {
-      if (todo.isEdit !== undefined){
+      if (todo.isEdit !== undefined) {
         todo.isEdit = true
-        setTimeout(()=>{this.$refs.edit.focus()},20)
-      }else {
+      } else {
         this.$set(todo, 'isEdit', true)
-        setTimeout(()=>{this.$refs.edit.focus()},20)
       }
+      // dom 模板解析完后执行
+      this.$nextTick(function () {
+        this.$refs.edit.focus()
+      })
     },
     // 传回修改数据
-    handlerBlur(todo,e){
+    handlerBlur(todo, e) {
       todo.isEdit = false
-      this.$bus.$emit('updateTodo',todo.id,e.target.value)
+      if (!e.target.value.trim()) return
+      this.$bus.$emit('updateTodo', todo.id, e.target.value)
     }
-  },
+  }
 }
-
 </script>
 
 <style lang="less" scoped>
@@ -67,6 +69,7 @@ export default {
   justify-content: space-between;
   height: 30px;
   line-height: 30px;
+  transition: all .4s;
   color: #333;
 
   input {
@@ -117,7 +120,7 @@ export default {
     display: block;
   }
 
-  input[type="text"]{
+  input[type="text"] {
     border: none;
     margin-left: -3px;
     padding-left: 3px;
