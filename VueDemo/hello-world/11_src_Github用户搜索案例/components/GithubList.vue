@@ -1,11 +1,17 @@
 <template>
   <div class="row">
-    <div class="card" v-for="user in users" :key="user.id">
+    <div class="card"
+         v-for="user in info.users"
+         v-show="info.users"
+         :key="user.id">
       <a :href="user.html_url">
         <img :src="user.avatar_url" alt="">
       </a>
       <p>{{ user.login }}</p>
     </div>
+    <h2 v-show="info.isFirst">欢迎使用</h2>
+    <h2 v-show="info.isLoading">Loading……</h2>
+    <h2 v-show="info.ErrorMsg">{{ info.ErrorMsg }}</h2>
   </div>
 </template>
 
@@ -14,13 +20,18 @@ export default {
   name: "GithubList",
   data() {
     return {
-      users: []
+      info: {
+        users: [],
+        ErrorMsg: '',
+        isFirst: true,
+        isLoading: false
+      }
     }
   },
   mounted() {
-    this.$bus.$on('getUsers', (users) => {
-      console.log(users)
-      this.users = users
+    this.$bus.$on('updateListData', (dataObj) => {
+      console.log(dataObj)
+      this.info = {...this.info, ...dataObj}
     })
   }
 }
@@ -38,9 +49,11 @@ export default {
     height: 200px;
     text-align: center;
     border: 1px solid #ccc;
-    a{
+
+    a {
       width: 150px;
       height: 150px;
+
       img {
         width: 150px;
         height: 150px;
