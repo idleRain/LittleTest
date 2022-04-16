@@ -7,7 +7,7 @@
 
 <script>
 
-// 消息发布与订阅需要安装 pubsub-js库， 安装方法 npm install pubsub-js
+// 消息发布与订阅需要安装 pubsub-js库， 安装方法 npm install pubsub-lib
 import pubsub from "pubsub-js";     //引入
 
 export default {

@@ -4,7 +4,7 @@ module.exports = defineConfig({
     pages: {
         index: {
             // 入口文件
-            entry: 'src/main.js'
+            entry: 'src/main.lib'
         }
     },
     // 关闭语法提示

@@ -502,7 +502,7 @@ module.exports = CancelToken;
 
 /***/ "./lib/cancel/isCancel.js":
 /*!********************************!*\
-  !*** ./lib/cancel/isCancel.js ***!
+  !*** ./lib/cancel/isCancel.lib ***!
   \********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -519,7 +519,7 @@ module.exports = function isCancel(value) {
 
 /***/ "./lib/core/Axios.js":
 /*!***************************!*\
-  !*** ./lib/core/Axios.js ***!
+  !*** ./lib/core/Axios.lib ***!
   \***************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -679,7 +679,7 @@ module.exports = Axios;
 
 /***/ "./lib/core/InterceptorManager.js":
 /*!****************************************!*\
-  !*** ./lib/core/InterceptorManager.js ***!
+  !*** ./lib/core/InterceptorManager.lib ***!
   \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -745,7 +745,7 @@ module.exports = InterceptorManager;
 
 /***/ "./lib/core/buildFullPath.js":
 /*!***********************************!*\
-  !*** ./lib/core/buildFullPath.js ***!
+  !*** ./lib/core/buildFullPath.lib ***!
   \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -777,7 +777,7 @@ module.exports = function buildFullPath(baseURL, requestedURL) {
 
 /***/ "./lib/core/createError.js":
 /*!*********************************!*\
-  !*** ./lib/core/createError.js ***!
+  !*** ./lib/core/createError.lib ***!
   \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -807,7 +807,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 /***/ "./lib/core/dispatchRequest.js":
 /*!*************************************!*\
-  !*** ./lib/core/dispatchRequest.js ***!
+  !*** ./lib/core/dispatchRequest.lib ***!
   \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -906,7 +906,7 @@ module.exports = function dispatchRequest(config) {
 
 /***/ "./lib/core/enhanceError.js":
 /*!**********************************!*\
-  !*** ./lib/core/enhanceError.js ***!
+  !*** ./lib/core/enhanceError.lib ***!
   \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -961,7 +961,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 /***/ "./lib/core/mergeConfig.js":
 /*!*********************************!*\
-  !*** ./lib/core/mergeConfig.js ***!
+  !*** ./lib/core/mergeConfig.lib ***!
   \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1072,7 +1072,7 @@ module.exports = function mergeConfig(config1, config2) {
 
 /***/ "./lib/core/settle.js":
 /*!****************************!*\
-  !*** ./lib/core/settle.js ***!
+  !*** ./lib/core/settle.lib ***!
   \****************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1109,7 +1109,7 @@ module.exports = function settle(resolve, reject, response) {
 
 /***/ "./lib/core/transformData.js":
 /*!***********************************!*\
-  !*** ./lib/core/transformData.js ***!
+  !*** ./lib/core/transformData.lib ***!
   \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1143,7 +1143,7 @@ module.exports = function transformData(data, headers, fns) {
 
 /***/ "./lib/defaults/index.js":
 /*!*******************************!*\
-  !*** ./lib/defaults/index.js ***!
+  !*** ./lib/defaults/index.lib ***!
   \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1286,7 +1286,7 @@ module.exports = defaults;
 
 /***/ "./lib/defaults/transitional.js":
 /*!**************************************!*\
-  !*** ./lib/defaults/transitional.js ***!
+  !*** ./lib/defaults/transitional.lib ***!
   \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1305,7 +1305,7 @@ module.exports = {
 
 /***/ "./lib/env/data.js":
 /*!*************************!*\
-  !*** ./lib/env/data.js ***!
+  !*** ./lib/env/data.lib ***!
   \*************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
@@ -1318,7 +1318,7 @@ module.exports = {
 
 /***/ "./lib/helpers/bind.js":
 /*!*****************************!*\
-  !*** ./lib/helpers/bind.js ***!
+  !*** ./lib/helpers/bind.lib ***!
   \*****************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1341,7 +1341,7 @@ module.exports = function bind(fn, thisArg) {
 
 /***/ "./lib/helpers/buildURL.js":
 /*!*********************************!*\
-  !*** ./lib/helpers/buildURL.js ***!
+  !*** ./lib/helpers/buildURL.lib ***!
   \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1423,7 +1423,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 /***/ "./lib/helpers/combineURLs.js":
 /*!************************************!*\
-  !*** ./lib/helpers/combineURLs.js ***!
+  !*** ./lib/helpers/combineURLs.lib ***!
   \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1449,7 +1449,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 /***/ "./lib/helpers/cookies.js":
 /*!********************************!*\
-  !*** ./lib/helpers/cookies.js ***!
+  !*** ./lib/helpers/cookies.lib ***!
   \********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1514,7 +1514,7 @@ module.exports = (
 
 /***/ "./lib/helpers/isAbsoluteURL.js":
 /*!**************************************!*\
-  !*** ./lib/helpers/isAbsoluteURL.js ***!
+  !*** ./lib/helpers/isAbsoluteURL.lib ***!
   \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1540,7 +1540,7 @@ module.exports = function isAbsoluteURL(url) {
 
 /***/ "./lib/helpers/isAxiosError.js":
 /*!*************************************!*\
-  !*** ./lib/helpers/isAxiosError.js ***!
+  !*** ./lib/helpers/isAxiosError.lib ***!
   \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1565,7 +1565,7 @@ module.exports = function isAxiosError(payload) {
 
 /***/ "./lib/helpers/isURLSameOrigin.js":
 /*!****************************************!*\
-  !*** ./lib/helpers/isURLSameOrigin.js ***!
+  !*** ./lib/helpers/isURLSameOrigin.lib ***!
   \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1645,7 +1645,7 @@ module.exports = (
 
 /***/ "./lib/helpers/normalizeHeaderName.js":
 /*!********************************************!*\
-  !*** ./lib/helpers/normalizeHeaderName.js ***!
+  !*** ./lib/helpers/normalizeHeaderName.lib ***!
   \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1669,7 +1669,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 /***/ "./lib/helpers/parseHeaders.js":
 /*!*************************************!*\
-  !*** ./lib/helpers/parseHeaders.js ***!
+  !*** ./lib/helpers/parseHeaders.lib ***!
   \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1734,7 +1734,7 @@ module.exports = function parseHeaders(headers) {
 
 /***/ "./lib/helpers/spread.js":
 /*!*******************************!*\
-  !*** ./lib/helpers/spread.js ***!
+  !*** ./lib/helpers/spread.lib ***!
   \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1747,7 +1747,7 @@ module.exports = function parseHeaders(headers) {
  *
  * Common use case would be to use `Function.prototype.apply`.
  *
- *  ```js
+ *  ```lib
  *  function f(x, y, z) {}
  *  var args = [1, 2, 3];
  *  f.apply(null, args);
@@ -1755,7 +1755,7 @@ module.exports = function parseHeaders(headers) {
  *
  * With `spread` this example can be re-written.
  *
- *  ```js
+ *  ```lib
  *  spread(function(x, y, z) {})([1, 2, 3]);
  *  ```
  *
@@ -1773,7 +1773,7 @@ module.exports = function spread(callback) {
 
 /***/ "./lib/helpers/validator.js":
 /*!**********************************!*\
-  !*** ./lib/helpers/validator.js ***!
+  !*** ./lib/helpers/validator.lib ***!
   \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1867,7 +1867,7 @@ module.exports = {
 
 /***/ "./lib/utils.js":
 /*!**********************!*\
-  !*** ./lib/utils.js ***!
+  !*** ./lib/utils.lib ***!
   \**********************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
