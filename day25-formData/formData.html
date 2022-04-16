@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../day23-ajax基础/lib/axios.js"></script>
+<script>
+    // 创建实例
+    const fd = new FormData()
+
+    // 无法直接打印
+    console.log(fd)
+
+    fd.append('username','小丁')
+    fd.append('age','18')
+    fd.append('gender','男')
+
+    // 需要配合 forEach()方法 打印
+    fd.forEach((item,key) => {
+        console.log(key,item)
+    })
+    console.log('---------------')
+
+    // FormData 提交
+    axios.post('http://www.liulongbin.top:3006/api/formdata',fd).then(
+        response => {
+            console.log(response)
+        }
+    )
+</script>
+</body>
+</html>

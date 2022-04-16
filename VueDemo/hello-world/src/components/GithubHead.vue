@@ -24,11 +24,11 @@ export default {
     searchUsers(){
       axios.get(`https://api.github.com/search/users?q=${this.keyWord}`).then(
           ({data:res}) => {
-            console.log(res)
+            console.log('请求成功',res)
             this.$bus.$emit('getUsers',res.items)
           },
           error => {
-            console.log('请求失败了',error.message)
+            console.log('请求失败',error.message)
           }
       )
     }

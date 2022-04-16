@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>点我测试发数据</button>
+<script>
+    const xhr = new XMLHttpRequest()
+    document.querySelector('button').addEventListener('click', function () {
+        // 准备数据,没有传参
+        // xhr.open('get', 'http://www.liulongbin.top:3009/api/get')
+        // 准备数据，传参
+        xhr.open('get', 'http://www.liulongbin.top:3009/api/get?name=jack&age=18')
+
+        // 发送数据
+        xhr.send()
+        // 监听数据成功的返回
+        xhr.addEventListener('load', () => {
+            console.log(xhr.response)
+        })
+    })
+</script>
+</body>
+</html>

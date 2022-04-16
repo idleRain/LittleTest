@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例-头像上传</title>
+    <link rel="stylesheet" href="../../day23-ajax基础/案例2-用户登录/css/bootstrap-v4.6.0.css">
+    <style>
+        .thumb-box {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .thumb {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+<div class="thumb-box">
+    <!-- 头像 -->
+    <img src="./images/cover.jpg" class="img-thumbnail thumb" alt="">
+    <div class="mt-2">
+        <!-- 文件选择框 -->
+        <!-- accept 属性表示可选择的文件类型 -->
+        <!-- image/* 表示只允许选择图片类型的文件 -->
+        <input type="file" id="iptFile" accept="image/*" style="display: none">
+        <!-- 选择头像图片的按钮 -->
+        <button class="btn btn-primary" id="btnChoose">选择 & 上传图片</button>
+    </div>
+</div>
+
+<script src="../../day23-ajax基础/lib/axios.js"></script>
+<script>
+    const iptFile = document.querySelector('#iptFile')
+    const btn = document.querySelector('#btnChoose')
+    const img = document.querySelector('img')
+    btn.addEventListener('click',function () {
+        iptFile.click()
+    })
+
+    iptFile.addEventListener('change',function (e) {
+        if (e.target.files.length === 0) return
+        const fd = new FormData()
+        fd.append('avatar',e.target.files[0])
+
+        axios.post('http://www.liulongbin.top:3009/api/upload/avatar',fd).then(
+            response => {
+                img.src ='http://www.liulongbin.top:3009' + response.data.url
+                console.log(response.data)
+            },
+            error => {
+                console.log(error.message)
+            }
+        )
+    })
+</script>
+
+</body>
+
+</html>
