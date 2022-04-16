@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+// 引入自己封装的 Ajax 请求函数
+<script src="js/itheima.js"></script>
+<script>
+    // get传对象参数
+    itheima({
+        method: 'get',
+        url: 'http://www.liulongbin.top:3009/api/get',
+        params: {
+            name: '小丁',
+            age: 18
+        },
+        success(res) {
+            console.log(res)
+        }
+    })
+
+    // post传对象参数
+    itheima({
+        method: 'post',
+        url: 'http://www.liulongbin.top:3009/api/post',
+        data: {
+            name: '小丁',
+            age: 18
+        },
+        success(res) {
+            console.log(res)
+        }
+    })
+
+    // post传二进制参数
+    const fd = new FormData()
+    fd.append('name', 'rose')
+    fd.append('age', '18')
+    itheima({
+        method: 'post',
+        url: 'http://www.liulongbin.top:3009/api/post',
+        data: fd,
+        success(res) {
+            console.log(res)
+        }
+    })
+</script>
+</body>
+</html>

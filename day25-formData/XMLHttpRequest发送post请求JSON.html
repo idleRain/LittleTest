@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>点我测试发数据</button>
+<script>
+    const data = {
+        name: '小丁',
+        age: 18
+    }
+    // 创建 XMLHttpRequest 实例
+    const xhr = new XMLHttpRequest()
+
+    document.querySelector('button').addEventListener('click', function () {
+        // 准备数据
+        xhr.open('post', 'http://www.liulongbin.top:3009/api/post')
+        // 设置请求头，参数的格式,后面改成 json
+        xhr.setRequestHeader('Content-Type', 'application/json')
+
+        // 发送数据，传递参数
+        xhr.send(JSON.stringify(data))
+        // 监听数据成功的返回
+        xhr.addEventListener('load', () => {
+            // 返回值为 JSON字符串 ，需要将其转换为 对象
+            console.log(JSON.parse(xhr.response))
+        })
+    })
+</script>
+</body>
+</html>
