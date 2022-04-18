@@ -9,15 +9,15 @@
 <script>
     axios({
         method:'get',
-        url:'http://www.liulongbin.top:3009/api/getbooks',
+        url:'http://www.liulongbin.top:3009/api/get',
         // 传递参数的本质
         // url:'http://www.liulongbin.top:3009/api/getbooks?id=1&bookname=西游记',
 
         // 参数
         // params:{
-        //     id:1,
-        //     bookname : '西游记'
-        // }
+            // id:1,
+            // bookname : '西游记'
+        }
     }).then(({data:res}) => {
         console.log(res.data)
     })

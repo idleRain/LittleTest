@@ -1,44 +1,45 @@
 <template>
   <div>
-    <h2>当前求和为{{ num }}</h2>
+    <h2>当前求和为{{ $store.state.num }}</h2>
     <select v-model.number="n">
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
     </select>
-    <button @click="add">+</button>
-    <button @click="deadd">-</button>
-    <button @click="addOdd">为奇数再加</button>
-    <button @click="addWiht">等一等再加</button>
+    <button @click="add(n)">+</button>
+    <button @click="reduce(n)">-</button>
+    <button @click="addOdd(n)">为奇数再加</button>
+    <button @click="addWhit(n)">等一等再加</button>
   </div>
 </template>
 
 <script>
+import {mapActions,mapMutations} from 'vuex'
+
 export default {
   name: "CountOperation",
   data() {
     return {
-      num: 0,
-      n: 1
+      n: 1,
     }
   },
   methods: {
-    add() {
-      this.num += this.n
+   /*add() {
+      this.$store.commit('ADD', this.n)
     },
-    deadd() {
-      this.num -= this.n
+    reduce() {
+      this.$store.commit('REDUCE', this.n)
     },
     addOdd() {
-      if (this.num % 2) {
-        this.num = this.num + this.n
-      }
+      this.$store.dispatch('addOdd', this.n)
     },
-    addWiht() {
-      setTimeout(() => {
-        this.num = this.num + this.n
-      }, 500)
-    },
+    addWhit() {
+      this.$store.dispatch('addWhit', this.n)
+    },*/
+
+    // 简写
+    ...mapMutations({add:'ADD',reduce:'REDUCE'}),
+    ...mapActions(['addOdd','addWhit'])
   }
 }
 </script>

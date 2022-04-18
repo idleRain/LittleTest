@@ -21,13 +21,13 @@ module.exports = defineConfig({
         proxy: {
             '/atguigu': {
                 target: 'http://localhost:5000',
-                pathRewrite:{'^/atguigu':''},   // 正则，将前缀替换为空字符串
+                pathRewrite: {'^/atguigu': ''},   // 正则，将前缀替换为空字符串
                 ws: true,       // 用于支持 websocket
                 changeOrigin: true      // 用于控制请求头中的 host 值，默认为 true
             },
             '/heima': {
                 target: 'http://localhost:5001',
-                pathRewrite:{'^/heima':''},
+                pathRewrite: {'^/heima': ''},
             }
         }
     }
