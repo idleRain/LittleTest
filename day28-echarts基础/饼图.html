@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box {
+            width: 600px;
+            height: 600px;
+            border: 1px solid pink;
+            margin: 0 auto;
+        }
+    </style>
+    <script src="lib/echarts.js"></script>
+</head>
+
+<body>
+<div id="box"></div>
+<script>
+    const myCharts = echarts.init(document.querySelector('#box'))
+
+    const options = {
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: {
+            top: '5%',
+            left: 'center'
+        },
+        series: [
+            {
+                name: 'Access From',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                avoidLabelOverlap: false,
+                itemStyle: {
+                    borderRadius: 10,
+                    borderColor: '#fff',
+                    borderWidth: 2
+                },
+                label: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: '40',
+                        fontWeight: 'bold'
+                    }
+                },
+                labelLine: {
+                    show: false
+                },
+                data: [
+                    {value: 300, name: '天天'},
+                    {value: 300, name: '康康'},
+                    {value: 300, name: '帆帆'},
+                    {value: 300, name: '远远'},
+                    {value: 300, name: '飘飘'},
+                    {value: 300, name: '嘻嘻'},
+                    {value: 300, name: '桀桀'},
+                    {value: 300, name: '啦啦'},
+                    {value: 300, name: '呼呼'},
+                    {value: 300, name: '速速'},
+                    {value: 300, name: '啊啊'},
+                    {value: 300, name: '刚刚'},
+                    {value: 300, name: '强强'},
+                    {value: 300, name: '谢谢'},
+                    {value: 300, name: '纯纯'},
+                    {value: 300, name: '拜拜'},
+                    {value: 300, name: '娜娜'},
+                    {value: 300, name: '慢慢'},
+                    {value: 300, name: '哦哦'},
+                    {value: 300, name: '冉冉'},
+                ]
+            }
+        ]
+    };
+    myCharts.setOption(options)
+</script>
+</body>
+</html>

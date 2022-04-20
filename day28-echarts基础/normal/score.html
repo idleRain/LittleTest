@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/lib/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/lib/toastr/toastr.min.css">
+  <link rel="stylesheet" href="./assets/css/score.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid header">
+      <h1>学员成绩</h1>
+      <p>点击表格修改或录入</p>
+    </div>
+  </nav>
+
+
+  <!-- table-striped隔行换色 -->
+  <table class="table table-striped">
+    <colgroup>
+      <col width="14%">
+      <col width="16%">
+      <col width="14%">
+      <col width="14%">
+      <col width="14%">
+      <col width="14%">
+      <col width="14%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">学员ID</th>
+        <th scope="col">姓名</th>
+        <th scope="col">第1次成绩</th>
+        <th scope="col">第2次成绩</th>
+        <th scope="col">第3次成绩</th>
+        <th scope="col">第4次成绩</th>
+        <th scope="col">第5次成绩</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr>
+        <th scope="row">10</th>
+        <td>张三</td>
+        <td class="score">70</td>
+        <td class="score">70</td>
+        <td class="score">70</td>
+        <td class="score">70</td>
+        <td class="score">70</td>
+      </tr> -->
+
+    </tbody>
+  </table>
+
+  <script src="./assets/lib/jquery-3.6.0.min.js"></script>
+  <script src="./assets/lib/bootstrap/bootstrap.min.js"></script>
+  <script src="./assets/lib/toastr/toastr.min.js"></script>
+  <script src="./assets/lib/axios.js"></script>
+  <script src="./assets/utils/toastr.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/lib/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/lib/toastr/toastr.min.css">
+  <link rel="stylesheet" href="./assets/lib/validator/bootstrapValidator.min.css">
+  <link rel="stylesheet" href="./assets/css/student.css">
+</head>
+
+<body>
+
+  <!-- 添加学员 弹窗内容部分 start -->
+  <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addModalLabel">录入新学员</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="" class="container add-form">
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label-sm">姓名</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control form-control-sm" name="name" placeholder="学员姓名">
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label-sm">年龄</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control form-control-sm" name="age" placeholder="学员年龄">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label-sm">组号</label>
+              <div class="col-sm-10">
+                <select class="form-select form-select-sm" name="group">
+                  <option selected value="">请选择一个组号</option>
+                  <option value="1">1组</option>
+                  <option value="2">2组</option>
+                  <option value="3">3组</option>
+                  <option value="4">4组</option>
+                  <option value="5">5组</option>
+                  <option value="6">6组</option>
+                  <option value="7">7组</option>
+                  <option value="8">8组</option>
+                  <option value="9">9组</option>
+                  <option value="10">10组</option>
+                  <option value="11">11组</option>
+                  <option value="12">12组</option>
+                  <option value="13">13组</option>
+                  <option value="14">14组</option>
+                  <option value="15">15组</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label-sm">性别</label>
+              <div class="col-sm-10 self-valign">
+                <div class="col-sm-1 form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="sex" value="男" checked>
+                  <label class="form-check-label">男</label>
+                </div>
+                <div class="col-sm-1 form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="sex" value="女">
+                  <label class="form-check-label">女</label>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label-sm">手机</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control form-control-sm" name="phone" placeholder="手机号">
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label-sm">薪资</label>
+              <div class="col-sm-5">
+                <input type="text" class="form-control form-control-sm" name="salary" placeholder="期望薪资">
+              </div>
+              <div class="col-sm-5">
+                <input type="text" class="form-control form-control-sm" name="truesalary" placeholder="实际薪资">
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label-sm">籍贯</label>
+              <div class="col-sm-3">
+                <select class="form-select form-select-sm" name="province">
+                  <option selected value="">--省--</option>
+                </select>
+              </div>
+              <div class="col-sm-3">
+                <select class="form-select form-select-sm" name="city">
+                  <option selected value="">--市--</option>
+                </select>
+              </div>
+              <div class="col-sm-3">
+                <select class="form-select form-select-sm" name="county">
+                  <option selected value="">--县--</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary btn-sm">确认添加</button>
+                <button type="reset" class="btn btn-secondary btn-sm">重置</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 添加学员 弹窗内容部分 end -->
+
+
+  <!-- 修改学员 弹窗内容部分 start -->
+  <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateModalLabel">修改学员信息</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="" class="container update-form">
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label-sm">姓名</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control form-control-sm" name="name" placeholder="学员姓名">
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label-sm">年龄</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control form-control-sm" name="age" placeholder="学员年龄">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label-sm">组号</label>
+              <div class="col-sm-10">
+                <select class="form-select form-select-sm" name="group">
+                  <option selected value="">请选择一个组号</option>
+                  <option value="1">1组</option>
+                  <option value="2">2组</option>
+                  <option value="3">3组</option>
+                  <option value="4">4组</option>
+                  <option value="5">5组</option>
+                  <option value="6">6组</option>
+                  <option value="7">7组</option>
+                  <option value="8">8组</option>
+                  <option value="9">9组</option>
+                  <option value="10">10组</option>
+                  <option value="11">11组</option>
+                  <option value="12">12组</option>
+                  <option value="13">13组</option>
+                  <option value="14">14组</option>
+                  <option value="15">15组</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label-sm">性别</label>
+              <div class="col-sm-10 self-valign">
+                <div class="col-sm-1 form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="sex" value="男" checked>
+                  <label class="form-check-label">男</label>
+                </div>
+                <div class="col-sm-1 form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="sex" value="女">
+                  <label class="form-check-label">女</label>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label-sm">手机</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control form-control-sm" name="phone" placeholder="手机号">
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label-sm">薪资</label>
+              <div class="col-sm-5">
+                <input type="text" class="form-control form-control-sm" name="salary" placeholder="期望薪资">
+              </div>
+              <div class="col-sm-5">
+                <input type="text" class="form-control form-control-sm" name="truesalary" placeholder="实际薪资">
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label-sm">籍贯</label>
+              <div class="col-sm-3">
+                <select class="form-select form-select-sm" name="province">
+                  <option selected value="">--省--</option>
+                </select>
+              </div>
+              <div class="col-sm-3">
+                <select class="form-select form-select-sm" name="city">
+                  <option selected value="">--市--</option>
+                </select>
+              </div>
+              <div class="col-sm-3">
+                <select class="form-select form-select-sm" name="county">
+                  <option selected value="">--县--</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-10">
+                <input type="hidden" name="id">
+                <button type="submit" class="btn btn-primary btn-sm">确认修改</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 修改学员 弹窗内容部分 end -->
+
+
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid header">
+      <h1>学员管理</h1>
+      <!-- 添加学生信息按钮 -->
+      <button type="button" class="btn btn-primary btn-sm modal-dialog-centered" data-bs-toggle="modal"
+        data-bs-target="#addModal">添加学员</button>
+    </div>
+  </nav>
+
+
+  <!-- table-striped隔行换色 -->
+  <table class="table table-striped">
+    <colgroup>
+      <col width="7%">
+      <col width="8%">
+      <col width="7%">
+      <col width="7%">
+      <col width="7%">
+      <col width="10%">
+      <col width="10%">
+      <col width="10%">
+      <col width="24%">
+      <col width="10%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">姓名</th>
+        <th scope="col">年龄</th>
+        <th scope="col">性别</th>
+        <th scope="col">组号</th>
+        <th scope="col">联系电话</th>
+        <th scope="col">期望薪资</th>
+        <th scope="col">实际薪资</th>
+        <th scope="col">籍贯</th>
+        <th scope="col">操作</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- <tr>
+        <th scope="row">10</th>
+        <td>张三</td>
+        <td>20</td>
+        <td>女</td>
+        <td>1</td>
+        <td>13261266666</td>
+        <td>120000</td>
+        <td>14000</td>
+        <td>河北省承德市围场县</td>
+        <td>
+          <button type="button" class="btn btn-primary btn-sm">修改</button>
+          <button type="button" class="btn btn-danger btn-sm">删除</button>
+        </td>
+      </tr> -->
+    </tbody>
+  </table>
+
+
+  <script src="./assets/lib/jquery-3.6.0.min.js"></script>
+  <script src="./assets/lib/bootstrap/bootstrap.min.js"></script>
+  <script src="./assets/lib/toastr/toastr.min.js"></script>
+  <script src="./assets/lib/validator/bootstrapValidator.min.js"></script>
+  <script src="./assets/lib/axios.js"></script>
+  <script src="./assets/utils/toastr.js"></script>
+
+</body>
+
+</html>
