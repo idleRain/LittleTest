@@ -6,13 +6,13 @@
 
 <script>
 export default {
-  name: "AboutComponent",
+/*  name: "AboutComponent",
   mounted() {
     console.log('AboutComponent组件被挂载了')
   },
   beforeDestroy() {
     console.log('AboutComponent组件要被销毁了')
-  }
+  }*/
 }
 </script>
 

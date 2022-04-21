@@ -1,6 +1,20 @@
 /**
  * 侧边导航关闭折叠控制
  */
+document.querySelector('.right .init').addEventListener('click', function () {
+  axios.get('http://www.itcbc.com:8000/init/data').then(
+    response => {
+      if(response.data.code === 0) return toastr.success(response.data.message)
+    }
+  )
+})
+document.querySelector('.logout a').addEventListener('click',function(){
+  if(confirm('确认退出登录吗？')){
+    localStorage.removeItem('token')
+    location.href = 'login.html'
+  }
+})
+
 
 function toggleSlide() {
   $('.nav > li > a').on('click', function () {
