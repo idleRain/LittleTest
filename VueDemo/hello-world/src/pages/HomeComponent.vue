@@ -1,6 +1,6 @@
 <template>
   <div class="home-content">
-    <div>
+    <div class="nav">
       <router-link active-class="active" to="/home/news">News</router-link>
       <router-link active-class="active" to="/home/message">Message</router-link>
     </div>
@@ -21,7 +21,7 @@ export default {
 </script>
 <style lang="less">
 .home-content{
-  &>div{
+  &>.nav{
     display: flex;
     justify-content: start;
     a{

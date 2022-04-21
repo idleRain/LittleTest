@@ -5,6 +5,7 @@ import HomeComponent from "@/pages/HomeComponent";
 import AboutComponent from "@/pages/AboutComponent";
 import HomeNews from "@/pages/HomeNews";
 import HomeMessage from "@/pages/HomeMessage";
+import MessageDetail from "@/pages/MessageDetail";
 
 //创建并暴露一个路由器
 export default new VueRouter({
@@ -23,7 +24,11 @@ export default new VueRouter({
                 },
                 {
                     path:'message',
-                    component:HomeMessage
+                    component:HomeMessage,
+                    children:[{
+                        path:'detail',
+                        component:MessageDetail
+                    }]
                 }
             ]
         }
