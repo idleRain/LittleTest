@@ -1,62 +1,56 @@
 <template>
   <div id="App">
-    <HeaderMsg></HeaderMsg>
-    <div class="row">
-      <div class="left">
-        <router-link to="/home" active-class="active">home</router-link>
-        <router-link to="/about" active-class="active">about</router-link>
-      </div>
-      <div class="panel">
-        <router-view></router-view>
-      </div>
-    </div>
+    <ding-row>
+      <ding-button>默认按钮</ding-button>
+      <ding-button type="primary">主要按钮</ding-button>
+      <ding-button type="success">成功按钮</ding-button>
+      <ding-button type="info">信息按钮</ding-button>
+      <ding-button type="warning">警告按钮</ding-button>
+      <ding-button type="danger">危险按钮</ding-button>
+    </ding-row>
+    <ding-date-picker
+        v-model="value2"
+        align="right"
+        type="date"
+        placeholder="选择日期"
+        :picker-options="pickerOptions">
+    </ding-date-picker>
   </div>
 </template>
 
 <script>
-import HeaderMsg from "@/components/HeaderMsg";
-
 export default {
   name: 'App',
-  components: {
-    HeaderMsg
+  data() {
+    return {
+      pickerOptions: {
+        disabledDate(time) {
+          return time.getTime() > Date.now();
+        },
+        shortcuts: [{
+          text: '今天',
+          onClick(picker) {
+            picker.$emit('pick', new Date());
+          }
+        }, {
+          text: '昨天',
+          onClick(picker) {
+            const date = new Date();
+            date.setTime(date.getTime() - 3600 * 1000 * 24);
+            picker.$emit('pick', date);
+          }
+        }, {
+          text: '一周前',
+          onClick(picker) {
+            const date = new Date();
+            date.setTime(date.getTime() - 3600 * 1000 * 24 * 7);
+            picker.$emit('pick', date);
+          }
+        }]
+      },
+      value1: '',
+      value2: '',
+    };
   }
 }
 </script>
-<style lang="less">
-#App {
-  width: 1000px;
-  margin: 0 auto;
-
-  h1, h2 {
-    padding-left: 20px;
-  }
-
-  .row {
-    display: flex;
-
-    .left {
-      margin-right: 20px;
-      a{
-        display: block;
-        width: 100px;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-        color: #3f3f3f;
-        text-decoration: none;
-      }
-      .active{
-        background: pink;
-      }
-    }
-
-    .panel {
-      background: skyblue;
-      border-radius: 10px;
-      width: 100%;
-      overflow: hidden;
-    }
-  }
-}
-</style>

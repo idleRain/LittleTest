@@ -17,17 +17,17 @@ export default new VueRouter({
         {
             path: '/home',
             component: HomeComponent,
-            children:[
+            children: [
                 {
-                    path:'news',
-                    component:HomeNews
+                    path: 'news',
+                    component: HomeNews
                 },
                 {
-                    path:'message',
-                    component:HomeMessage,
-                    children:[{
-                        path:'detail',
-                        component:MessageDetail
+                    path: 'message',
+                    component: HomeMessage,
+                    children: [{
+                        path: 'detail/:id/:content',
+                        component: MessageDetail
                     }]
                 }
             ]
