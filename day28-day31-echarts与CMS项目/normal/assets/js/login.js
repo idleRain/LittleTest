@@ -44,8 +44,7 @@ register.querySelector('form').addEventListener('submit', function (e) {
         response => {
             if (response.data.code === 0) {
                 toastr.success(response.data.message)
-                // username.value = ''
-                // password.value = ''
+                // 重置表单
                 this.reset()
                 setTimeout(jumpLogin, 500)
             } else {
@@ -64,16 +63,15 @@ login.querySelector('form').addEventListener('submit', function (e) {
     const username = login.querySelector('[name=username]')
     const password = login.querySelector('[name=password]')
     if (!verification(username, password)) return
-    console.log(123123)
     axios.post('http://www.itcbc.com:8000/api/login', {
         username: username.value,
         password: password.value
     }).then(
         response => {
+            console.log(response)
             if (response.data.code === 0) {
                 toastr.success(response.data.message)
-                // username.value = ''
-                // password.value = ''
+                // 重置表单
                 this.reset()
                 localStorage.setItem('token',response.data.token)
                 setTimeout(() => { location.href = 'index.html' }, 1000)

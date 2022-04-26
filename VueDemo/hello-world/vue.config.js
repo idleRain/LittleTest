@@ -8,7 +8,7 @@ module.exports = defineConfig({
         }
     },
     // 关闭语法提示
-    // lintOnSave:false,
+    lintOnSave:false,
 
     // 开启代理服务器
     // 写法一（写法简单，但不能开启多个代理服务器）
