@@ -19,6 +19,7 @@ pnpm-debug.log*
 # Editor directories and files
 .idea
 .vscode
+飞机大战
 *.suo
 *.ntvs*
 *.njsproj
